@@ -5,6 +5,7 @@
  */
 package cnelson.p1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,7 +13,10 @@ import java.util.Random;
  *
  * @author cop4856
  */
-public class RandomVehicles {
+public class RandomVehicles implements Serializable {
+        //default serialVersion id
+    private static final long serialVersionUID = 1L;
+    
     private String randMake;
     private String randSize;
     private int randWeight;
