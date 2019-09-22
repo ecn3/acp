@@ -6,6 +6,7 @@
 package cnelson.p1;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -77,21 +78,22 @@ public class RandomVehicles {
     public void setRandSize() {
         int myRandSize = (int) ((Math.random() * ((3 - 1) + 1)) + 1);
         // we set our weight based on the size
+        Random r = new Random();
         if (myRandSize == 1) {
             this.randSize = "compact";
-            this.randWeight = (int) ((Math.random() * ((2000 - 1500) + 1)) + 1);
+            this.randWeight = r.nextInt(2000-1500) + 1500;
         }
         if (myRandSize == 2) {
             this.randSize = "intermediate";
-            this.randWeight = (int) ((Math.random() * ((2500 - 2000) + 1)) + 1);
+            this.randWeight = r.nextInt(2500-2000) + 2000;
         }
         if (myRandSize == 3) {
             this.randSize = "fullSized";
-            this.randWeight = (int) ((Math.random() * ((4000 - 2500) + 1)) + 1);
+            this.randWeight = r.nextInt(4000-2500) + 2500;
         }
     }
 
     public void setRandEngineSize() {
-        this.randWeight = (int) ((Math.random() * ((18.0 - 1.0) + 1.0)) + 1.0);
+        this.randEngineSize = (int) ((Math.random() * ((18.0 - 1.0) + 1.0)) + 1.0);
     }
 }
