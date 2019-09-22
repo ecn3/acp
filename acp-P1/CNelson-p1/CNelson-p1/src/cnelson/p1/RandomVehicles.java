@@ -11,28 +11,21 @@ import java.util.ArrayList;
  *
  * @author cop4856
  */
-public class RandomVehicles extends Vehicle {
-
-    public ArrayList <Vehicle> vehicles; // arraylist of vehicles
+public class RandomVehicles {
     private String randMake;
     private String randSize;
     private int randWeight;
     private double randEngineSize;
     private boolean randIsImport;
 
-    public RandomVehicles(String make, String size, int weight, double engineSize, boolean isImport) {
-        super(make, size, weight, engineSize, isImport);
-    }
-    
-    public void RandomVehicle() {
+    public Vehicle RandomVehicles() {
         //set the randoms
         setRandMake();
         setRandSize();
         setRandEngineSize();
         
         Vehicle randVehicle = new Vehicle(getRandMake(), getRandSize(), (int) getRandWeight(), getRandEngineSize(), getRandIsImport());
-       
-        vehicles.add(randVehicle);
+        return randVehicle;
     }
 
     public String getRandMake() {
