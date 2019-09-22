@@ -14,12 +14,12 @@ public class Vehicle {
     //variables
     private String make;
     private String size;
-    private double weight;
+    private int weight;
     private double engineSize;
     private boolean isImport;
 
     //defualt constructor created by java
-    public Vehicle(String make, String size, double weight, double engineSize, boolean isImport) {
+    public Vehicle(String make, String size, int weight, double engineSize, boolean isImport) {
         this.make = make;
         this.size = size;
         this.weight = weight;
@@ -55,7 +55,7 @@ public class Vehicle {
         this.size = size;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
