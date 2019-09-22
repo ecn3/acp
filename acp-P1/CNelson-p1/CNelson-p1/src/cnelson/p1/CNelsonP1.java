@@ -15,12 +15,19 @@ public class CNelsonP1 {
         System.out.println("Creating Vehicle" + "\n");
 
         ArrayList<RandomVehicles> vehicles = new ArrayList<>(10); // arraylist of vehicles
-
-        //create 10 instances of vehicle
+        //RandomVehicles randVehicle = new RandomVehicles();
+       // System.out.println("Vehicle " + randVehicle.getRandSize() +"\n");
+          
+        
+        
+              //create 10 instances of vehicle
         for (int i = 0; i < 10; i++) {
             RandomVehicles randVehicle = new RandomVehicles();
             vehicles.add(randVehicle);
+            
+            System.out.println("Vehicle " +(i+1) + " " + randVehicle.getRandMake() +"\n");
         }
-
+        
+        
     }
 }

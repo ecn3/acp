@@ -18,14 +18,13 @@ public class RandomVehicles {
     private double randEngineSize;
     private boolean randIsImport;
 
-    public Vehicle RandomVehicles() {
+    public RandomVehicles() {
         //set the randoms
         setRandMake();
         setRandSize();
         setRandEngineSize();
         
         Vehicle randVehicle = new Vehicle(getRandMake(), getRandSize(), (int) getRandWeight(), getRandEngineSize(), getRandIsImport());
-        return randVehicle;
     }
 
     public String getRandMake() {
