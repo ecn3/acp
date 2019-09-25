@@ -70,8 +70,13 @@ public class CNelsonP1 {
             
 
             //4. issueQuery()
-            ResultSet result = stat.executeQuery("SELECT * FROM Test2");
-
+            //all the vehicles that have been stored in the database.
+            ResultSet result = stat.executeQuery("SELECT * FROM Vehicles");
+            //all Chevys and Toyotas
+            ResultSet result2 = stat.executeQuery("SELECT * FROM Vehicles, WHERE Make='Chevy' OR Make='Toyota'");
+            //all vehicles weighing more than 2500 pounds
+            ResultSet result3 = stat.executeQuery("SELECT * FROM Vehicles, WHERE Weight > 2500");
+           
             System.out.println("after inserts");
             //5. Process results
 
@@ -84,13 +89,13 @@ public class CNelsonP1 {
                 System.out.println("");
             }
             try {
-                stat.execute("DROP TABLE Test2");
+                stat.execute("DROP TABLE Vehicles");
             } catch (Exception e) {
                 System.out.println("drop failed");
             }
         } finally {
             conn.close();
-            System.out.println("dropped Table Test2, closed connection and ending program");
+            System.out.println("dropped Table Vehicles, closed connection and ending program");
         }
     }
        public void WriteObjectToFile(Object serObj) {
