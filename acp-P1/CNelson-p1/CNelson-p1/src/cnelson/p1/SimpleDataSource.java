@@ -43,15 +43,3 @@ public class SimpleDataSource
       return DriverManager.getConnection(url, username, password);
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
