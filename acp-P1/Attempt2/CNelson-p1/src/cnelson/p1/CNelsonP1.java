@@ -31,7 +31,7 @@ public class CNelsonP1 {
         }
 
         try {
-            //2. createTable()
+            //2. createTable() //Creates Vehicle Table
             stat.execute("CREATE TABLE Vehicles (Make CHAR(20), Size CHAR(20), Weight INTEGER, EngineSize DOUBLE, Import BOOLEAN)");
             //3. addDataToTable()
             stat.execute("INSERT INTO Test2 VALUES ('Romeo',27, true)");
