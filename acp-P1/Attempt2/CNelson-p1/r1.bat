@@ -1,1 +1,1 @@
-java -classpath derby.jar;. TestDB database.properties
+java -classpath derby.jar;. CNelsonP1 database.properties
