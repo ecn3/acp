@@ -32,20 +32,20 @@ public class CNelsonP1 {
 
         try {
             //2. createTable()
-            stat.execute("CREATE TABLE Test2 (Name CHAR(20),Age INTEGER, Active BOOLEAN)");
+            stat.execute("CREATE TABLE Vehicles (Make CHAR(20), Size CHAR(20), Weight INTEGER, EngineSize DOUBLE, Import BOOLEAN)");
             //3. addDataToTable()
             stat.execute("INSERT INTO Test2 VALUES ('Romeo',27, true)");
             stat.execute("INSERT INTO Test2 VALUES ('Juliet',25, true)");
             stat.execute("INSERT INTO Test2 VALUES ('Tom',64, true)");
             stat.execute("INSERT INTO Test2 VALUES ('Dick',55, false)");
             stat.execute("INSERT INTO Test2 VALUES ('Harry',33, true)");
-            
+
             //4. issueQuery()
             ResultSet result = stat.executeQuery("SELECT * FROM Test2");
 
             System.out.println("after inserts");
             //5. Process results
-            
+
             ResultSetMetaData rsm = result.getMetaData();
             int cols = rsm.getColumnCount();
             while (result.next()) {
