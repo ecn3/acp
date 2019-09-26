@@ -18,6 +18,7 @@ public class TestDB
 private static final String filename="Vehicles.dat";
    public static void main(String[] args) throws Exception
    {   
+   
      TestDB objectIO = new TestDB();
    
       
@@ -26,16 +27,8 @@ private static final String filename="Vehicles.dat";
         for (int i = 0; i < 10; i++) {
             RandomVehicles randVehicle = new RandomVehicles();
             vehicles.add(randVehicle);
-            /*
-            System.out.println("Vehicle " + (i + 1) + " "
-                    + randVehicle.getRandMake() + " "
-                    + randVehicle.getRandSize() + " "
-                    + randVehicle.getRandEngineSize() + " "
-                    + randVehicle.getRandWeight() + " "
-                    + randVehicle.getRandIsImport()
-                    + "\n");
-            */
         }
+        
          objectIO.WriteObjectToFile(vehicles); // write to .dat
    
       if (args.length == 0)
@@ -66,31 +59,34 @@ private static final String filename="Vehicles.dat";
          stat.execute("CREATE TABLE Vehicles (Make CHAR(10), Size CHAR(15), Weight INTEGER, EngineSize DOUBLE, isImport BOOLEAN)");
          
           //3. addDataToTable()
-          /*
+     
             for (int i = 0; i < 10; i++) {
-                stat.execute("INSERT INTO TABLE VALUES ("
-                        + vehicles.get(i).getRandMake() + ","
-                        + vehicles.get(i).getRandSize() + ","
+                stat.execute("INSERT INTO Vehicles VALUES ("
+                        +"'"+ vehicles.get(i).getRandMake()+"'" + ","
+                        +"'"+ vehicles.get(i).getRandSize()+"'" + ","
                         + vehicles.get(i).getRandWeight() + ","
                         + vehicles.get(i).getRandEngineSize() + ","
-                        + vehicles.get(i).getRandIsImport() + ","
-                        + ")");
+                        + vehicles.get(i).getRandIsImport()+")");
             }
-            */
-            stat.execute("INSERT INTO Vehicles VALUES ('Chevy','Compact', 1500, 1.0, false)");
-            stat.execute("INSERT INTO Vehicles VALUES ('Toyota','Compact', 3000, 1.0, true)");
-            stat.execute("INSERT INTO Vehicles VALUES ('Honda','Intermediate', 1500, 2.0, true)");
-             //4. issueQuery()
-                 //4. issueQuery()
+       
+
+       
+            //stat.execute("INSERT INTO Vehicles VALUES ('Chevy','Compact', 1500, 1.0, false)");
+            //stat.execute("INSERT INTO Vehicles VALUES ('Toyota','Compact', 3000, 1.0, true)");
+            //stat.execute("INSERT INTO Vehicles VALUES ('Honda','Intermediate', 1500, 2.0, true)");
+            
+            //4. issueQuery()
             //all the vehicles that have been stored in the database.
             ResultSet result = stat.executeQuery("SELECT * FROM Vehicles");
             //all Chevys and Toyotas
-            ResultSet result2 = stat.executeQuery("SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'");
+            //ResultSet result2 = stat.executeQuery("SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'");
             //all vehicles weighing more than 2500 pounds
-            ResultSet result3 = stat.executeQuery("SELECT * FROM Vehicles where Weight > 2500");
+            //ResultSet result3 = stat.executeQuery("SELECT * FROM Vehicles where Weight > 2500");
 			  
 			System.out.println("after inserts");
+         
 			ResultSetMetaData rsm = result.getMetaData();
+         
 			int cols = rsm.getColumnCount();
 			  while(result.next())
 			  {
