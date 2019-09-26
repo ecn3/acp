@@ -16,7 +16,9 @@ import java.util.logging.Logger;
    java -classpath driver_class_path;. TestDB database.properties
 */
 public class TestDB {
+
     private static final String filename = "Vehicles.dat";
+    
     public static void main(String[] args) throws Exception {
 
         boolean append = true;
@@ -29,7 +31,7 @@ public class TestDB {
 
 
         ArrayList < RandomVehicles > vehicles = new ArrayList < > (10); // arraylist of vehicles
-        //create 10 instances of vehicle
+
         for (int i = 0; i < 10; i++) {
             RandomVehicles randVehicle = new RandomVehicles();
             vehicles.add(randVehicle);
@@ -48,6 +50,7 @@ public class TestDB {
             System.out.println("args[0] = " + args[0]);
             SimpleDataSource.init(args[0]);
         }
+        
         //1. createConnection()
         Connection conn = SimpleDataSource.getConnection();
         Statement stat = conn.createStatement();
@@ -58,11 +61,12 @@ public class TestDB {
         }
 
         try {
+        
             //2. createTable() //Creates Vehicle Table
-            stat.execute("CREATE TABLE Vehicles (Make CHAR(10), Size CHAR(15), Weight INTEGER, EngineSize DOUBLE, isImport BOOLEAN)");
+            stat.execute("CREATE TABLE Vehicles (Make CHAR(8), Size CHAR(13), Weight INTEGER, EngineSize DOUBLE, isImport BOOLEAN)");
             logger.info("Created Table Vehicles");
+            
             //3. addDataToTable()
-
             for (int i = 0; i < 10; i++) {
                 stat.execute("INSERT INTO Vehicles VALUES (" +
                     "'" + vehicles.get(i).getRandMake() + "'" + "," +
@@ -72,27 +76,23 @@ public class TestDB {
                     vehicles.get(i).getRandIsImport() + ")");
                 logger.info("added vehicle to values");
             }
-            //4. issueQuery()
-            //all the vehicles that have been stored in the database.
-            //ResultSet result = stat.executeQuery("SELECT * FROM Vehicles");
-            logger.info("Issued query:SELECT * FROM Vehicles");
-            //all Chevys and Toyotas
-            //ResultSet result = stat.executeQuery("SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'");
-            logger.info("Issued query:SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'");
-            //all vehicles weighing more than 2500 pounds
-            ResultSet result = stat.executeQuery("SELECT * FROM Vehicles where Weight > 2500");
-            logger.info("Issued query:SELECT * FROM Vehicles where Weight > 2500");
+                String[] query = {"SELECT * FROM Vehicles", "SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'", "SELECT * FROM Vehicles where Weight > 2500"}; 
+                 for (int i = 0; i < 3; i++){
+            
+            ResultSet result = stat.executeQuery(query[i]);
+            logger.info("Issued query: "+query[i]);
 
             System.out.println("after inserts");
-
+            System.out.println("\n");//break
             ResultSetMetaData rsm = result.getMetaData();
 
             int cols = rsm.getColumnCount();
             while (result.next()) {
-                for (int i = 1; i <= cols; i++)
-                    System.out.print(result.getString(i) + " ");
+                for (int j = 1; j <= cols; j++)
+                    System.out.print(result.getString(j) + " ");
                 System.out.println("");
             }
+            }//end for
             try {
                 stat.execute("DROP TABLE Vehicles");
             } catch (Exception e) {
@@ -100,6 +100,7 @@ public class TestDB {
             }
         } finally {
             conn.close();
+            System.out.println("\n");//break
             System.out.println("dropped Table Vehicles, closed connection and ending program");
         }
     }
