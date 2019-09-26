@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class TestDB {
 
     private static final String filename = "Vehicles.dat";
-    
+
     public static void main(String[] args) throws Exception {
 
         boolean append = true;
@@ -50,7 +50,7 @@ public class TestDB {
             System.out.println("args[0] = " + args[0]);
             SimpleDataSource.init(args[0]);
         }
-        
+
         //1. createConnection()
         Connection conn = SimpleDataSource.getConnection();
         Statement stat = conn.createStatement();
@@ -61,11 +61,11 @@ public class TestDB {
         }
 
         try {
-        
+
             //2. createTable() //Creates Vehicle Table
             stat.execute("CREATE TABLE Vehicles (Make CHAR(8), Size CHAR(13), Weight INTEGER, EngineSize DOUBLE, isImport BOOLEAN)");
             logger.info("Created Table Vehicles");
-            
+
             //3. addDataToTable()
             for (int i = 0; i < 10; i++) {
                 stat.execute("INSERT INTO Vehicles VALUES (" +
@@ -76,23 +76,27 @@ public class TestDB {
                     vehicles.get(i).getRandIsImport() + ")");
                 logger.info("added vehicle to values");
             }
-                String[] query = {"SELECT * FROM Vehicles", "SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'", "SELECT * FROM Vehicles where Weight > 2500"}; 
-                 for (int i = 0; i < 3; i++){
-            
-            ResultSet result = stat.executeQuery(query[i]);
-            logger.info("Issued query: "+query[i]);
+            String[] query = {
+                "SELECT * FROM Vehicles",
+                "SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'",
+                "SELECT * FROM Vehicles where Weight > 2500"
+            };
+            for (int i = 0; i < 3; i++) {
 
-            System.out.println("after inserts");
-            System.out.println("\n");//break
-            ResultSetMetaData rsm = result.getMetaData();
+                ResultSet result = stat.executeQuery(query[i]);
+                logger.info("Issued query: " + query[i]);
 
-            int cols = rsm.getColumnCount();
-            while (result.next()) {
-                for (int j = 1; j <= cols; j++)
-                    System.out.print(result.getString(j) + " ");
-                System.out.println("");
-            }
-            }//end for
+                System.out.println("after inserts");
+                System.out.println("\n"); //break
+                ResultSetMetaData rsm = result.getMetaData();
+
+                int cols = rsm.getColumnCount();
+                while (result.next()) {
+                    for (int j = 1; j <= cols; j++)
+                        System.out.print(result.getString(j) + " ");
+                    System.out.println("");
+                }
+            } //end for
             try {
                 stat.execute("DROP TABLE Vehicles");
             } catch (Exception e) {
@@ -100,7 +104,7 @@ public class TestDB {
             }
         } finally {
             conn.close();
-            System.out.println("\n");//break
+            System.out.println("\n"); //break
             System.out.println("dropped Table Vehicles, closed connection and ending program");
         }
     }
