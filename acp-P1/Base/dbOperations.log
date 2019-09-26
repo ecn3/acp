@@ -399,3 +399,1033 @@
   <message>Issued query:SELECT * FROM Vehicles where Weight &gt; 2500</message>
 </record>
 </log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:38:41</date>
+  <millis>1569465521978</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:42</date>
+  <millis>1569465522027</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:38:54</date>
+  <millis>1569465534753</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:54</date>
+  <millis>1569465534800</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:58</date>
+  <millis>1569465538653</millis>
+  <sequence>2</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created Table Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:58</date>
+  <millis>1569465538954</millis>
+  <sequence>3</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:58</date>
+  <millis>1569465538963</millis>
+  <sequence>4</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:58</date>
+  <millis>1569465538971</millis>
+  <sequence>5</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:58</date>
+  <millis>1569465538980</millis>
+  <sequence>6</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:58</date>
+  <millis>1569465538988</millis>
+  <sequence>7</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:58</date>
+  <millis>1569465538999</millis>
+  <sequence>8</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:59</date>
+  <millis>1569465539007</millis>
+  <sequence>9</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:59</date>
+  <millis>1569465539012</millis>
+  <sequence>10</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:59</date>
+  <millis>1569465539019</millis>
+  <sequence>11</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:59</date>
+  <millis>1569465539026</millis>
+  <sequence>12</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:59</date>
+  <millis>1569465539080</millis>
+  <sequence>13</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:59</date>
+  <millis>1569465539125</millis>
+  <sequence>14</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'</message>
+</record>
+<record>
+  <date>2019-09-25T21:38:59</date>
+  <millis>1569465539127</millis>
+  <sequence>15</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Weight &gt; 2500</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:39:23</date>
+  <millis>1569465563143</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:39:23</date>
+  <millis>1569465563192</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:50:16</date>
+  <millis>1569466216788</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:16</date>
+  <millis>1569466216849</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:50:24</date>
+  <millis>1569466224713</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:24</date>
+  <millis>1569466224769</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228291</millis>
+  <sequence>2</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created Table Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228546</millis>
+  <sequence>3</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228553</millis>
+  <sequence>4</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228561</millis>
+  <sequence>5</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228568</millis>
+  <sequence>6</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228577</millis>
+  <sequence>7</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228584</millis>
+  <sequence>8</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228590</millis>
+  <sequence>9</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228597</millis>
+  <sequence>10</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228602</millis>
+  <sequence>11</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228608</millis>
+  <sequence>12</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228659</millis>
+  <sequence>13</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228705</millis>
+  <sequence>14</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'</message>
+</record>
+<record>
+  <date>2019-09-25T21:50:28</date>
+  <millis>1569466228711</millis>
+  <sequence>15</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Weight &gt; 2500</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:51:04</date>
+  <millis>1569466264000</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:04</date>
+  <millis>1569466264047</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:51:11</date>
+  <millis>1569466271622</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:11</date>
+  <millis>1569466271669</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275099</millis>
+  <sequence>2</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created Table Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275246</millis>
+  <sequence>3</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275252</millis>
+  <sequence>4</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275256</millis>
+  <sequence>5</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275262</millis>
+  <sequence>6</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275267</millis>
+  <sequence>7</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275272</millis>
+  <sequence>8</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275277</millis>
+  <sequence>9</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275281</millis>
+  <sequence>10</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275287</millis>
+  <sequence>11</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275291</millis>
+  <sequence>12</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275345</millis>
+  <sequence>13</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275346</millis>
+  <sequence>14</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:15</date>
+  <millis>1569466275349</millis>
+  <sequence>15</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Weight &gt; 2500</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:51:37</date>
+  <millis>1569466297310</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:37</date>
+  <millis>1569466297357</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:51:45</date>
+  <millis>1569466305138</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:45</date>
+  <millis>1569466305185</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:49</date>
+  <millis>1569466309720</millis>
+  <sequence>2</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created Table Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310009</millis>
+  <sequence>3</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310015</millis>
+  <sequence>4</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310021</millis>
+  <sequence>5</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310028</millis>
+  <sequence>6</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310034</millis>
+  <sequence>7</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310039</millis>
+  <sequence>8</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310046</millis>
+  <sequence>9</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310053</millis>
+  <sequence>10</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310060</millis>
+  <sequence>11</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310067</millis>
+  <sequence>12</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310068</millis>
+  <sequence>13</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310158</millis>
+  <sequence>14</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'</message>
+</record>
+<record>
+  <date>2019-09-25T21:51:50</date>
+  <millis>1569466310162</millis>
+  <sequence>15</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Weight &gt; 2500</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-09-25T21:52:06</date>
+  <millis>1569466326035</millis>
+  <sequence>0</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created 10 instances of vehicle</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:06</date>
+  <millis>1569466326082</millis>
+  <sequence>1</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Wrote vehicles to vehicle.dat</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329366</millis>
+  <sequence>2</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Created Table Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329603</millis>
+  <sequence>3</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329613</millis>
+  <sequence>4</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329622</millis>
+  <sequence>5</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329631</millis>
+  <sequence>6</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329640</millis>
+  <sequence>7</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329649</millis>
+  <sequence>8</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329661</millis>
+  <sequence>9</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329667</millis>
+  <sequence>10</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329673</millis>
+  <sequence>11</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329681</millis>
+  <sequence>12</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>added vehicle to values</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329682</millis>
+  <sequence>13</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329683</millis>
+  <sequence>14</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Make='Chevy' OR Make='Toyota'</message>
+</record>
+<record>
+  <date>2019-09-25T21:52:09</date>
+  <millis>1569466329769</millis>
+  <sequence>15</sequence>
+  <logger>com.javacodegeeks.snippets.core</logger>
+  <level>INFO</level>
+  <class>TestDB</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Issued query:SELECT * FROM Vehicles where Weight &gt; 2500</message>
+</record>
+</log>
