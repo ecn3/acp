@@ -8,5 +8,5 @@ Refactoring
 //Creates Vehicle Table
 //Inserts Vehicle Data into Table
 ~Issues Three queries, correct results
-Creates Log File, logs commands and missed fields
+//Creates Log File, logs commands and missed fields
 //Proper submission format
