@@ -26,7 +26,7 @@ public class TestDB
 		   System.out.println("args[0] = " + args[0]);
          SimpleDataSource.init(args[0]);
 		}
-      
+       //1. createConnection()
       Connection conn = SimpleDataSource.getConnection();
       Statement stat = conn.createStatement();     
  	   try {  
@@ -37,12 +37,14 @@ public class TestDB
 
       try
       {
-   
+         //2. createTable() //Creates Vehicle Table
          stat.execute("CREATE TABLE Vehicles (Make CHAR(20), Size CHAR(20), Weight INTEGER, EngineSize DOUBLE, Import BOOLEAN)");
+         //3. addDataToTable()
          stat.execute("INSERT INTO Vehicles VALUES ('Chevy','Compact', 1500, 1.0, true)");
          stat.execute("INSERT INTO Vehicles VALUES ('Toyota','Compact', 1500, 1.0, true)");
+         //4. issueQuery()
          ResultSet result = stat.executeQuery("SELECT * FROM Vehicles");
-			  
+			//5. Process results 
 			System.out.println("after inserts");
 			ResultSetMetaData rsm = result.getMetaData();
 			int cols = rsm.getColumnCount();
