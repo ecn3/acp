@@ -7,6 +7,6 @@ Refactoring
 //Connects to database
 //Creates Vehicle Table
 //Inserts Vehicle Data into Table
-~Issues Three queries, correct results
+//Issues Three queries, correct results
 //Creates Log File, logs commands and missed fields
 //Proper submission format
