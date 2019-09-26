@@ -30,7 +30,7 @@ public class TestDB
       Connection conn = SimpleDataSource.getConnection();
       Statement stat = conn.createStatement();     
  	   try {  
-		  stat.execute("DROP TABLE Test2"); 
+		  stat.execute("DROP TABLE Vehicles"); 
       }
 	   catch (Exception e)
 		{ System.out.println("drop failed"); }      
@@ -38,13 +38,10 @@ public class TestDB
       try
       {
    
-         stat.execute("CREATE TABLE Test2 (Name CHAR(20),Age INTEGER, Active BOOLEAN)");
-         stat.execute("INSERT INTO Test2 VALUES ('Romeo',27, true)");
-         stat.execute("INSERT INTO Test2 VALUES ('Juliet',25, true)");
-         stat.execute("INSERT INTO Test2 VALUES ('Tom',64, true)");
-         stat.execute("INSERT INTO Test2 VALUES ('Dick',55, false)");
-         stat.execute("INSERT INTO Test2 VALUES ('Harry',33, true)");
-         ResultSet result = stat.executeQuery("SELECT * FROM Test2");
+         stat.execute("CREATE TABLE Vehicles (Make CHAR(20), Size CHAR(20), Weight INTEGER, EngineSize DOUBLE, Import BOOLEAN)");
+         stat.execute("INSERT INTO Vehicles VALUES ('Chevy','Compact', 1500, 1.0, true)");
+         stat.execute("INSERT INTO Vehicles VALUES ('Toyota','Compact', 1500, 1.0, true)");
+         ResultSet result = stat.executeQuery("SELECT * FROM Vehicles");
 			  
 			System.out.println("after inserts");
 			ResultSetMetaData rsm = result.getMetaData();
@@ -56,7 +53,7 @@ public class TestDB
              System.out.println("");      
 			  }
 			try {  
-		     stat.execute("DROP TABLE Test2"); 
+		     stat.execute("DROP TABLE Vehicles"); 
          }
 			catch (Exception e)
 			{ System.out.println("drop failed"); }    
@@ -64,7 +61,7 @@ public class TestDB
       finally
       {
          conn.close();
-			System.out.println("dropped Table Test2, closed connection and ending program");  
+			System.out.println("dropped Table Vehicles, closed connection and ending program");  
       }
    }
 }
