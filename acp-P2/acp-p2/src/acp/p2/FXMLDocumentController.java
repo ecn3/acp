@@ -5,6 +5,7 @@
  */
 package acp.p2;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -17,11 +18,20 @@ import javafx.scene.control.Label;
  * @author Christian
  */
 public class FXMLDocumentController implements Initializable {
-    
+
+    @FXML
+    private Label label;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+
+    @FXML
+    private void closeApp(javafx.event.ActionEvent event) {
+        System.out.println("You choose Exit");
+        System.exit(0);
+    }
+
 }
