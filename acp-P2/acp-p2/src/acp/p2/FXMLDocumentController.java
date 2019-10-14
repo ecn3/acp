@@ -37,17 +37,18 @@ import javafx.stage.Window;
  */
 public class FXMLDocumentController implements Initializable {
 
-    public  String workingDir = System.getProperty("user.dir");//stores uses working director
+    public String workingDir = System.getProperty("user.dir");//stores uses working director
     @FXML
     private Label label;
     @FXML
     private Label nameOfFile;
     @FXML
     private TextArea fileText;
-    
+
     public Set<String> myDictonary = new HashSet<>();
-    
-    
+
+    public boolean correctlySpelled;
+
     public Set<String> myDictonary() throws FileNotFoundException {
 
         Scanner scanner = new Scanner(new File("Words.txt")); //seperate by new line
@@ -58,14 +59,16 @@ public class FXMLDocumentController implements Initializable {
         return myDictonary;
     }
 
-    public void correctlySpelledWord(String myWord) {
+    public boolean correctlySpelledWord(String myWord) {
         if (myDictonary.contains(myWord)) {
-            System.out.println(myWord+" In Dict");
+            System.out.println(myWord + " In Dict");
+            return true;
         } else {
-            System.out.println(myWord+" Not in dict");
+            System.out.println(myWord + " Not in dict");
+            return false;
         }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -84,7 +87,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void openFile(javafx.event.ActionEvent event) throws FileNotFoundException {
         FileChooser fc = new FileChooser();
-         fc.setInitialDirectory(new File(workingDir));
+        fc.setInitialDirectory(new File(workingDir));
 
         //the above needs to be changed
         File selectedFile = fc.showOpenDialog(null);
@@ -114,13 +117,21 @@ public class FXMLDocumentController implements Initializable {
         fc.setInitialDirectory(new File(workingDir));
         File selectedFile = fc.showSaveDialog(null);
         FileWriter writer = new FileWriter(selectedFile.getName());
-	writer.write(fileText.getText().toString());
-	writer.close();
+        writer.write(fileText.getText().toString());
+        writer.close();
     }
 
     @FXML
-    private void checkSpelling(javafx.event.ActionEvent event) { 
-          correctlySpelledWord("aback");
+    private void checkSpelling(javafx.event.ActionEvent event) {
+
+        String myWords = fileText.getText(); // pull words from textArea
+        String[] words = myWords.split("\\s+"); // split up each word
+
+        for (int i = 0; i < words.length; i++) {
+            correctlySpelled = correctlySpelledWord(words[i]); // check if is spelled right
+
+        }
+
     }
 
 }
