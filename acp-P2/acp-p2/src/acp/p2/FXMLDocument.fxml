@@ -14,7 +14,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Open" />
+              <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
                   <MenuItem mnemonicParsing="false" text="Save" />
                   <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit" />
             </items>
@@ -26,6 +26,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextArea layoutY="29.0" prefHeight="329.0" prefWidth="401.0" />
+      <TextArea fx:id="fileText" layoutY="29.0" prefHeight="329.0" prefWidth="401.0" />
+      <Label fx:id="nameOfFile" layoutX="112.0" layoutY="6.0" />
     </children>
 </AnchorPane>
