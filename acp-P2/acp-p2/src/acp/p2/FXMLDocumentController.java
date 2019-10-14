@@ -33,6 +33,7 @@ import javafx.stage.Window;
  */
 public class FXMLDocumentController implements Initializable {
 
+    public  String workingDir = System.getProperty("user.dir");//stores uses working director
     @FXML
     private Label label;
     @FXML
@@ -54,7 +55,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void openFile(javafx.event.ActionEvent event) throws FileNotFoundException {
         FileChooser fc = new FileChooser();
-        fc.setInitialDirectory(new File("C:\\Users\\Christian\\Desktop\\Master Home\\Home Libary\\School\\UWF\\2019\\Fall 2019\\COP4027 Advanced Computer Programming\\acp\\acp\\acp-P2\\acp-p2"));
+         fc.setInitialDirectory(new File(workingDir));
+
         //the above needs to be changed
         File selectedFile = fc.showOpenDialog(null);
         if (selectedFile != null) {
@@ -80,7 +82,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void saveFile(javafx.event.ActionEvent event) throws IOException {
         FileChooser fc = new FileChooser();
-        fc.setInitialDirectory(new File("C:\\Users\\Christian\\Desktop\\Master Home\\Home Libary\\School\\UWF\\2019\\Fall 2019\\COP4027 Advanced Computer Programming\\acp\\acp\\acp-P2\\acp-p2"));
+        fc.setInitialDirectory(new File(workingDir));
         File selectedFile = fc.showSaveDialog(null);
         FileWriter writer = new FileWriter(selectedFile.getName());
 	writer.write(fileText.getText().toString());

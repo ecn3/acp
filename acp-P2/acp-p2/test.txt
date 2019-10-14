@@ -1,1 +1,1 @@
-TextArea[id=fileText, styleClass=text-input text-area] dgsdgsdgs
+This is a text filke with a bunch of fake words in it. It has sume mispelings.
