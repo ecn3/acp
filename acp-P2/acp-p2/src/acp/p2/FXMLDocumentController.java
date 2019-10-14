@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -37,7 +39,7 @@ public class FXMLDocumentController implements Initializable {
     private Label nameOfFile;
     @FXML
     private TextArea fileText;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -73,6 +75,16 @@ public class FXMLDocumentController implements Initializable {
         } catch (FileNotFoundException ex) {
             System.err.println(ex);
         }
+    }
+
+    @FXML
+    private void saveFile(javafx.event.ActionEvent event) throws IOException {
+        FileChooser fc = new FileChooser();
+        fc.setInitialDirectory(new File("C:\\Users\\Christian\\Desktop\\Master Home\\Home Libary\\School\\UWF\\2019\\Fall 2019\\COP4027 Advanced Computer Programming\\acp\\acp\\acp-P2\\acp-p2"));
+        File selectedFile = fc.showSaveDialog(null);
+        FileWriter writer = new FileWriter(selectedFile.getName());
+	writer.write(fileText.getText().toString());
+	writer.close();
     }
 
 }
