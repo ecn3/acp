@@ -20,8 +20,6 @@ import javafx.stage.Stage;
  * @author Christian
  */
 public class AcpP2 extends Application {
-    
-    public  Set<String> myDictonary = new HashSet<>();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -33,28 +31,8 @@ public class AcpP2 extends Application {
         stage.setScene(scene);
         stage.show();
 
-        Scanner scanner = new Scanner(new File("Words.txt")); //seperate by new line
-
-        while (scanner.hasNext()) {
-            myDictonary.add(scanner.next()); //add each word into the HashSet
-        }
-
-        if (myDictonary.contains("aback")) {
-            System.out.println("works 1");
-        } else {
-            System.out.println("Doesnt work 1");
-        }
-         if (myDictonary.contains("abacus")) {
-            System.out.println("works 2");
-        } else {
-            System.out.println("Doesnt work 2");
-        }
-
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }

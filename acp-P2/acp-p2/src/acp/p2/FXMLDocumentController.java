@@ -13,9 +13,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -41,9 +45,34 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextArea fileText;
     
+    public Set<String> myDictonary = new HashSet<>();
+    
+    
+    public Set<String> myDictonary() throws FileNotFoundException {
+
+        Scanner scanner = new Scanner(new File("Words.txt")); //seperate by new line
+
+        while (scanner.hasNext()) {
+            myDictonary.add(scanner.next()); //add each word into the HashSet
+        }
+        return myDictonary;
+    }
+
+    public void correctlySpelledWord(String myWord) {
+        if (myDictonary.contains(myWord)) {
+            System.out.println(myWord+" In Dict");
+        } else {
+            System.out.println(myWord+" Not in dict");
+        }
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            myDictonary();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -87,6 +116,11 @@ public class FXMLDocumentController implements Initializable {
         FileWriter writer = new FileWriter(selectedFile.getName());
 	writer.write(fileText.getText().toString());
 	writer.close();
+    }
+
+    @FXML
+    private void checkSpelling(javafx.event.ActionEvent event) { 
+          correctlySpelledWord("aback");
     }
 
 }
