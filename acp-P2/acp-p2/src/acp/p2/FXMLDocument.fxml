@@ -28,5 +28,6 @@
       </MenuBar>
       <TextArea fx:id="fileText" layoutY="29.0" prefHeight="329.0" prefWidth="401.0" />
       <Label fx:id="nameOfFile" layoutX="112.0" layoutY="6.0" />
+      <TextArea fx:id="suggestions" layoutX="401.0" layoutY="20.0" prefHeight="200.0" prefWidth="144.0" />
     </children>
 </AnchorPane>

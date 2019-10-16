@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -48,6 +49,12 @@ public class FXMLDocumentController implements Initializable {
     public Set<String> myDictonary = new HashSet<>();
 
     public boolean correctlySpelled;
+    
+    public String possibleCorrect;
+
+    public char[] letters = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    @FXML
+    private TextArea suggestions;
 
     public Set<String> myDictonary() throws FileNotFoundException {
 
@@ -126,14 +133,50 @@ public class FXMLDocumentController implements Initializable {
 
         String myWords = fileText.getText(); // pull words from textArea
         String[] words = myWords.split("\\s+"); // split up each word
+        ArrayList<String> tempWords;
+        String tempWord;
 
         for (int i = 0; i < words.length; i++) {
-            correctlySpelled = correctlySpelledWord(words[i]); // check if is spelled right
+            correctlySpelled = correctlySpelledWord(words[i].toLowerCase()); // check if is spelled right
+                if(correctlySpelled == true){
+                System.out.println(words[i]+": is correctly spelled"); 
+                }else{
+                System.out.println(words[i]+":  is incorrectly spelled"); 
+                tempWord = words[i]; // set word to tempWord
+                suggestions.setText(tempWord+"\n");
+                suggestions.appendText("Suggested Corrections:"+"\n");
+                
+                //One letter missing. test
+                tempWords = hasExtraLetter(tempWord);
+                for(int j = 0; j < tempWords.size(); j++){
+                suggestions.appendText(tempWords.get(0)+"\n");
+                }
+                i = words.length; /// get us out of the loop
+                }
+            }
 
+        }//end check spelling
+    
+    public  ArrayList<String> hasExtraLetter(String word){
+         ArrayList<String> suggestedCorrect = new ArrayList(); // create a list of words
+        
+         int lengthOfWord = word.length() - 1;
+         //remove char from the front of the dictornary
+         if(correctlySpelledWord(word.substring(1).toLowerCase())){
+         suggestedCorrect.add(word.substring(1));
+         }
+         for (int i = 1; i < lengthOfWord; i++) {
+            //try removing each char between (not including) the first and last
+            String working = word.substring(0, i);
+            working = working.concat(word.substring((i + 1), word.length()));
+            if (correctlySpelledWord(working)) {
+                suggestedCorrect.add(working);
+            }
         }
-
+          if (correctlySpelledWord(word.substring(0, lengthOfWord))) {
+            suggestedCorrect.add(word.substring(0, lengthOfWord));
+        }
+        return suggestedCorrect;
     }
-
-}
-
+    }// end doccont
 //https://stackoverflow.com/questions/27222205/javafx-read-from-text-file-and-display-in-textarea citation for scanner
