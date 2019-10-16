@@ -58,6 +58,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     public boolean correctlySpelledWord(String myWord) {
+        myWord = myWord.replaceAll("[^a-zA-Z]", ""); // gets rid of special chars
         if (myDictonary.contains(myWord)) {
             return true;
         } else {
@@ -150,8 +151,8 @@ public class FXMLDocumentController implements Initializable {
                     suggestions.appendText(tempWords.get(0) + "\n");
                     numberOfSuggestions++;
                 }
-                if(numberOfSuggestions == 0){
-                     suggestions.appendText("We cant find any suggestions");
+                if (numberOfSuggestions == 0) {
+                    suggestions.appendText("We cant find any suggestions");
                 }
                 i = words.length; /// get us out of the loop
             }
