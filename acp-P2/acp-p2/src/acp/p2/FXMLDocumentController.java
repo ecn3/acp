@@ -151,12 +151,19 @@ public class FXMLDocumentController implements Initializable {
                 for(int j = 0; j < tempWords.size(); j++){
                 suggestions.appendText(tempWords.get(0)+"\n");
                 }
+                //one letter added
+                tempWords = isSwapped(tempWord);
+                for(int j = 0; j < tempWords.size(); j++){
+                suggestions.appendText(tempWords.get(0)+"\n");
+                }
+                
                 i = words.length; /// get us out of the loop
                 }
             }
 
         }//end check spelling
     
+    //one letter is missing
     public  ArrayList<String> hasExtraLetter(String word){
          ArrayList<String> suggestedCorrect = new ArrayList(); // create a list of words
         
@@ -178,5 +185,22 @@ public class FXMLDocumentController implements Initializable {
         }
         return suggestedCorrect;
     }
+    
+    //one letter swapped
+    public ArrayList<String> isSwapped(String word) {
+        ArrayList<String> suggestedCorrect = new ArrayList();
+
+        for (int i = 0; i < word.length() - 1; i++) {
+            String working = word.substring(0, i);
+            working = working + word.charAt(i + 1);
+            working = working + word.charAt(i);
+            working = working.concat(word.substring((i + 2)));
+            if (correctlySpelledWord(working)) {
+                suggestedCorrect.add(working);
+            }
+        }
+        return suggestedCorrect;
+    }
+    
     }// end doccont
 //https://stackoverflow.com/questions/27222205/javafx-read-from-text-file-and-display-in-textarea citation for scanner
