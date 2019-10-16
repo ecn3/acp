@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package acp.p2;
 
 import java.awt.event.ActionEvent;
@@ -45,6 +40,8 @@ public class FXMLDocumentController implements Initializable {
     private Label nameOfFile;
     @FXML
     private TextArea fileText;
+    @FXML
+    private TextArea suggestions;
 
     public Set<String> myDictonary = new HashSet<>();
 
@@ -52,14 +49,8 @@ public class FXMLDocumentController implements Initializable {
 
     public String possibleCorrect;
 
-    public char[] letters = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-    @FXML
-    private TextArea suggestions;
-
     public Set<String> myDictonary() throws FileNotFoundException {
-
         Scanner scanner = new Scanner(new File("Words.txt")); //seperate by new line
-
         while (scanner.hasNext()) {
             myDictonary.add(scanner.next()); //add each word into the HashSet
         }
@@ -68,10 +59,8 @@ public class FXMLDocumentController implements Initializable {
 
     public boolean correctlySpelledWord(String myWord) {
         if (myDictonary.contains(myWord)) {
-            System.out.println(myWord + " In Dict");
             return true;
         } else {
-            System.out.println(myWord + " Not in dict");
             return false;
         }
     }
@@ -87,7 +76,6 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void closeApp(javafx.event.ActionEvent event) {
-        System.out.println("You choose Exit");
         System.exit(0);
     }
 
@@ -96,7 +84,6 @@ public class FXMLDocumentController implements Initializable {
         FileChooser fc = new FileChooser();
         fc.setInitialDirectory(new File(workingDir));
 
-        //the above needs to be changed
         File selectedFile = fc.showOpenDialog(null);
         if (selectedFile != null) {
             nameOfFile.setText(selectedFile.getName());
@@ -130,7 +117,6 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void checkSpelling(javafx.event.ActionEvent event) {
-
         String myWords = fileText.getText(); // pull words from textArea
         String[] words = myWords.split("\\s+"); // split up each word
         ArrayList<String> tempWords;
@@ -145,14 +131,8 @@ public class FXMLDocumentController implements Initializable {
                 tempWord = words[i]; // set word to tempWord
                 suggestions.setText(tempWord + "\n");
                 suggestions.appendText("Suggested Corrections:" + "\n");
-
                 //One letter missing. test
                 tempWords = hasExtraLetter(tempWord);
-                for (int j = 0; j < tempWords.size(); j++) {
-                    suggestions.appendText(tempWords.get(0) + "\n");
-                }
-                //one letter swapped
-                tempWords = isSwapped(tempWord);
                 for (int j = 0; j < tempWords.size(); j++) {
                     suggestions.appendText(tempWords.get(0) + "\n");
                 }
@@ -161,13 +141,18 @@ public class FXMLDocumentController implements Initializable {
                 for (int j = 0; j < tempWords.size(); j++) {
                     suggestions.appendText(tempWords.get(0) + "\n");
                 }
+                //one letter swapped
+                tempWords = isSwapped(tempWord);
+                for (int j = 0; j < tempWords.size(); j++) {
+                    suggestions.appendText(tempWords.get(0) + "\n");
+                }
                 i = words.length; /// get us out of the loop
             }
         }
 
     }//end check spelling
-
     //one letter is missing
+
     public ArrayList<String> hasExtraLetter(String word) {
         ArrayList<String> suggestedCorrect = new ArrayList(); // create a list of words
 
@@ -178,14 +163,30 @@ public class FXMLDocumentController implements Initializable {
         }
         for (int i = 1; i < lengthOfWord; i++) {
             //try removing each char between (not including) the first and last
-            String working = word.substring(0, i);
-            working = working.concat(word.substring((i + 1), word.length()));
-            if (correctlySpelledWord(working)) {
-                suggestedCorrect.add(working);
+            String temp = word.substring(0, i);
+            temp = temp.concat(word.substring((i + 1), word.length()));
+            if (correctlySpelledWord(temp)) {
+                suggestedCorrect.add(temp);
             }
         }
         if (correctlySpelledWord(word.substring(0, lengthOfWord))) {
             suggestedCorrect.add(word.substring(0, lengthOfWord));
+        }
+        return suggestedCorrect;
+    }
+
+    //one letter added
+    public ArrayList<String> oneLetterMissing(String word) {
+        ArrayList<String> suggestedCorrect = new ArrayList(); // create a list of words
+        String temp; // create a list of words
+        //break the string into an array of chars
+        for (int i = 0; i <= word.length(); ++i) {
+            for (char c = 'a'; c <= 'z'; ++c) {
+                temp = (word.substring(0, i) + String.valueOf(c) + word.substring(i));
+                if (correctlySpelledWord(temp.toLowerCase())) {
+                    suggestedCorrect.add(temp);
+                }
+            }
         }
         return suggestedCorrect;
     }
@@ -195,32 +196,14 @@ public class FXMLDocumentController implements Initializable {
         ArrayList<String> suggestedCorrect = new ArrayList();
 
         for (int i = 0; i < word.length() - 1; i++) {
-            String working = word.substring(0, i);
-            working = working + word.charAt(i + 1);
-            working = working + word.charAt(i);
-            working = working.concat(word.substring((i + 2)));
-            if (correctlySpelledWord(working)) {
-                suggestedCorrect.add(working);
+            String temp = word.substring(0, i);
+            temp = temp + word.charAt(i + 1);
+            temp = temp + word.charAt(i);
+            temp = temp.concat(word.substring((i + 2)));
+            if (correctlySpelledWord(temp)) {
+                suggestedCorrect.add(temp);
             }
         }
-        return suggestedCorrect;
-    }
-
-    //one letter added
-    public ArrayList<String> oneLetterMissing(String word) {
-        ArrayList<String> suggestedCorrect = new ArrayList(); // create a list of words
-       String tempSuggest; // create a list of words
-        //break the string into an array of chars
-        for (int i = 0; i <= word.length(); ++i) {
-            for (char c = 'a'; c <= 'z'; ++c) {
-                tempSuggest= (word.substring(0, i) + String.valueOf(c) + word.substring(i));
-                if(correctlySpelledWord(tempSuggest.toLowerCase())){
-                    suggestedCorrect.add(tempSuggest);
-                }
-                
-            }
-        }
-
         return suggestedCorrect;
     }
 }// end doccont
