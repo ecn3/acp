@@ -121,6 +121,7 @@ public class FXMLDocumentController implements Initializable {
         String[] words = myWords.split("\\s+"); // split up each word
         ArrayList<String> tempWords;
         String tempWord;
+        int numberOfSuggestions = 0;
 
         for (int i = 0; i < words.length; i++) {
             correctlySpelled = correctlySpelledWord(words[i].toLowerCase()); // check if is spelled right
@@ -135,16 +136,22 @@ public class FXMLDocumentController implements Initializable {
                 tempWords = hasExtraLetter(tempWord);
                 for (int j = 0; j < tempWords.size(); j++) {
                     suggestions.appendText(tempWords.get(0) + "\n");
+                    numberOfSuggestions++;
                 }
                 //one letter added
                 tempWords = oneLetterMissing(tempWord);
                 for (int j = 0; j < tempWords.size(); j++) {
                     suggestions.appendText(tempWords.get(0) + "\n");
+                    numberOfSuggestions++;
                 }
                 //one letter swapped
                 tempWords = isSwapped(tempWord);
                 for (int j = 0; j < tempWords.size(); j++) {
                     suggestions.appendText(tempWords.get(0) + "\n");
+                    numberOfSuggestions++;
+                }
+                if(numberOfSuggestions == 0){
+                     suggestions.appendText("We cant find any suggestions");
                 }
                 i = words.length; /// get us out of the loop
             }
