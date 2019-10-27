@@ -23,7 +23,7 @@
       <Label layoutX="22.0" layoutY="6.0" text="Start" />
       <Label layoutX="545.0" layoutY="6.0" text="Finish" />
       <Line endX="450.0" layoutX="123.0" layoutY="219.0" startX="-100.0" />
-      <Pane layoutX="22.0" layoutY="28.0" prefHeight="190.0" prefWidth="551.0">
+      <Pane layoutX="22.0" layoutY="28.0" prefHeight="190.0" prefWidth="550.0">
          <children>
             <ImageView fx:id="horse1" fitHeight="35.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                <viewport>
@@ -55,5 +55,6 @@
             </ImageView>
          </children>
       </Pane>
+      <Label fx:id="winnerLabel" layoutX="238.0" layoutY="6.0" />
     </children>
 </AnchorPane>
