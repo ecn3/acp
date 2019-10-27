@@ -10,17 +10,13 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
-import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
 
 /**
  *
@@ -28,9 +24,6 @@ import javafx.util.Duration;
  */
 public class FXMLDocumentController implements Initializable {
 
-    //public String horse1ImageUrl = "C:\\Users\\Christian\\Desktop\\Master Home\\Home Libary\\School\\UWF\\BS\\2019\\Fall 2019\\COP4027 Advanced Computer Programming\\acp\\acp\\acp-P3\\acp-P3\\horse1.jpg";
-    //public Image horse1Image = new Image(horse1ImageUrl);
-    //public String workingDir = System.getProperty("user.dir");//stores uses working director
     @FXML
     private ImageView horse1;
     @FXML
@@ -44,31 +37,41 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label winnerLabel;
 
+    public int winner = 0;
+
+    public boolean keepRacing = true;
+
+    public Timer timer = new Timer();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }
 
     @FXML
     private void runRace(ActionEvent event) throws InterruptedException {
         //race length X -100 -> X 450 [550]
-        Timer timer = new Timer();
-        boolean keepRacing = true;
-        
         TimerTask runTheHorses = new TimerTask() {
             public void run() {
-                if(keepRacing){
-                advanceHorses(keepRacing);
-                }
+                advanceHorses();
             }
         };
 
-        timer.schedule(runTheHorses,0, 500l); //run task every .5 seconds
-
+        timer.schedule(runTheHorses, 0, 200l); //run task every .5 seconds
+        if (keepRacing == false) {
+            timer.cancel();
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Winner");
+            alert.setHeaderText(null);
+            alert.setContentText("Winner is Horse: " + winner);
+            alert.showAndWait();
+        }
     }
 
     @FXML
     private void resetRace(ActionEvent event) {
+        winner = 0;
+        keepRacing = true;
+        timer.cancel();
         horse1.setLayoutX(-1.0);
         horse1.setLayoutY(0);
 
@@ -90,8 +93,7 @@ public class FXMLDocumentController implements Initializable {
         System.exit(0);
     }
 
-    private void advanceHorses(boolean keepRacing) {
-        int winner = 0;
+    private void advanceHorses() {
         Random r = new Random();
         int speed;
 
@@ -123,12 +125,6 @@ public class FXMLDocumentController implements Initializable {
         }
         if (winner > 0) {
             keepRacing = false;
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Winner");
-            alert.setHeaderText(null);
-            alert.setContentText("Winner is Horse: " + winner);
-            alert.showAndWait();
-            //winnerLabel.setText("Winner is Horse: " + winner);
         }// end race 
     }
 }
