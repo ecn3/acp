@@ -48,34 +48,30 @@ public class FXMLDocumentController implements Initializable {
     
     public long start;
     public long end;
+    public Timer timer;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         start = System.currentTimeMillis();
+        timer = new Timer();
     }
 
     @FXML
     private void runRace(ActionEvent event) throws InterruptedException {
         //race length X -100 -> X 450 [550]
-        Timer timer = new Timer();
+        timer = new Timer();
         TimerTask runTheHorses = new TimerTask() {
             public void run() {
                 advanceHorses();
             }
         };
 
-
         timer.scheduleAtFixedRate(runTheHorses, 0, 200l); //run task every .5 seconds
        
-        float sec = (end - start) / 1000F; 
+    
         if (keepRacing == false) {
-            timer.cancel();
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Winner");
-            alert.setHeaderText(null);
-            alert.setContentText("Winner is Horse: " + winner+" at "+sec + " seconds");
-            alert.showAndWait();
+            displayWinner();
         }
     }
 
@@ -138,6 +134,18 @@ public class FXMLDocumentController implements Initializable {
         if (winner > 0) {
             keepRacing = false;
             end = System.currentTimeMillis();
+            float sec = (end - start) / 1000F; 
+            System.out.println("STOOOOOP");
+            timer.cancel();
         }// end race 
+    }
+    
+    private void displayWinner(){
+            float sec = (end - start) / 1000F; 
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Winner");
+            alert.setHeaderText(null);
+            alert.setContentText("Winner is Horse: " + winner+" at "+sec + " seconds");
+            alert.showAndWait();
     }
 }
