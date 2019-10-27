@@ -24,4 +24,10 @@ FXMLDocController:
 	System.exit(0);
 
 
+race length X -100 -> X 450 [550]
+
+Y = -25 -> 160
+HorsesY: -10, 20, 60, 100, 140
+
+
 

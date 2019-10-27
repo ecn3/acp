@@ -23,6 +23,7 @@ public class AcpP3 extends Application {
         
         Scene scene = new Scene(root);
         
+        stage.setTitle("Horse Race");
         stage.setScene(scene);
         stage.show();
     }

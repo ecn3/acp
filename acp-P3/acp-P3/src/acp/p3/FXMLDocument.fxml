@@ -4,10 +4,10 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
 <AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="624.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="acp.p3.FXMLDocumentController">
     <children>
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <ButtonBar layoutX="111.0" layoutY="432.0" prefHeight="48.0" prefWidth="341.0">
         <buttons>
           <Button mnemonicParsing="false" onAction="#runRace" text="Run Race" />
@@ -15,5 +15,9 @@
             <Button mnemonicParsing="false" onAction="#quitProgram" text="Quit Program" />
         </buttons>
       </ButtonBar>
+      <Line endX="450.0" layoutX="122.0" layoutY="28.0" startX="-100.0" />
+      <Label layoutX="22.0" layoutY="6.0" text="Start" />
+      <Label layoutX="545.0" layoutY="6.0" text="Finish" />
+      <Line endX="450.0" layoutX="123.0" layoutY="219.0" startX="-100.0" />
     </children>
 </AnchorPane>

@@ -26,10 +26,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void runRace(ActionEvent event) {
+        //race length X -100 -> X 450 [550]
+        
     }
 
     @FXML
     private void resetRace(ActionEvent event) {
+        // Y = -25 -> 160: HorsesY: -10, 20, 60, 100, 140
+        
     }
 
     @FXML
