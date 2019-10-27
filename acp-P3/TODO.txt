@@ -19,6 +19,7 @@ FXMLDocController:
 
 [reset race]: event
 	initalize the 5 horses at the start
+	draw 5 objects at the starting x and y coordinates
 
 [quit program]: event
 	System.exit(0);

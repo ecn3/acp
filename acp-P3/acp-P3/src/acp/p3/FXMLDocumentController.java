@@ -6,17 +6,22 @@
 package acp.p3;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 /**
  *
@@ -41,22 +46,24 @@ public class FXMLDocumentController implements Initializable {
 
     public boolean keepRacing = true;
 
-    public Timer timer = new Timer();
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
     }
 
     @FXML
     private void runRace(ActionEvent event) throws InterruptedException {
         //race length X -100 -> X 450 [550]
+        Timer timer = new Timer();
         TimerTask runTheHorses = new TimerTask() {
             public void run() {
                 advanceHorses();
             }
         };
 
-        timer.schedule(runTheHorses, 0, 200l); //run task every .5 seconds
+
+        timer.scheduleAtFixedRate(runTheHorses, 0, 200l); //run task every .5 seconds
+    
         if (keepRacing == false) {
             timer.cancel();
             Alert alert = new Alert(AlertType.INFORMATION);
@@ -70,8 +77,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void resetRace(ActionEvent event) {
         winner = 0;
-        keepRacing = true;
-        timer.cancel();
+
         horse1.setLayoutX(-1.0);
         horse1.setLayoutY(0);
 
