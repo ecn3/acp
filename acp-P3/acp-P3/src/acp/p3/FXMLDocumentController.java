@@ -60,6 +60,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void runRace(ActionEvent event) throws InterruptedException {
         //race length X -100 -> X 450 [550]
+        start = System.currentTimeMillis();
         timer = new Timer();
         TimerTask runTheHorses = new TimerTask() {
             public void run() {
@@ -70,16 +71,16 @@ public class FXMLDocumentController implements Initializable {
         timer.scheduleAtFixedRate(runTheHorses, 0, 200l); //run task every .5 seconds
        
     
-        if (keepRacing == false) {
-            displayWinner();
-        }
+     
     }
 
     @FXML
     private void resetRace(ActionEvent event) {
+         if (winner > 0) {
+            displayWinner();
+        }
         winner = 0;
-        start = System.currentTimeMillis();
-
+        
         horse1.setLayoutX(-1.0);
         horse1.setLayoutY(0);
 
