@@ -47,11 +47,38 @@ public class FXMLDocumentController implements Initializable {
     private void runRace(ActionEvent event) throws InterruptedException {
         //race length X -100 -> X 450 [550]
         boolean keepRacing = true;
+        advanceHorses(keepRacing);
+       
+        
+    }
+    
+    @FXML
+    private void resetRace(ActionEvent event) {
+        horse1.setLayoutX(-1.0);
+        horse1.setLayoutY(0);
+        
+        horse2.setLayoutX(-1.0);
+        horse2.setLayoutY(38.0);
+        
+        horse3.setLayoutX(-1.0);
+        horse3.setLayoutY(76.0);
+        
+        horse4.setLayoutX(-1.0);
+        horse4.setLayoutY(114.0);
+        
+        horse5.setLayoutX(-1.0);
+        horse5.setLayoutY(152.0);
+    }
+    
+    @FXML
+    private void quitProgram(ActionEvent event) {
+        System.exit(0);        
+    }
+    
+    private void advanceHorses(boolean keepRacing){
         int winner = 0;
         Random r = new Random();
-        int speed;
-        
-        while (keepRacing) {            
+        int speed; 
             if (horse1.getLayoutX() >= 550) {
                 winner = 1;
             } else if (horse2.getLayoutX() >= 550) {
@@ -81,32 +108,6 @@ public class FXMLDocumentController implements Initializable {
             if (winner > 0) {
                 keepRacing = false;
                 winnerLabel.setText("Winner is Horse: " + winner);
-            }// end race 
-        }
-        
-    }
-    
-    @FXML
-    private void resetRace(ActionEvent event) {
-        horse1.setLayoutX(-1.0);
-        horse1.setLayoutY(0);
-        
-        horse2.setLayoutX(-1.0);
-        horse2.setLayoutY(38.0);
-        
-        horse3.setLayoutX(-1.0);
-        horse3.setLayoutY(76.0);
-        
-        horse4.setLayoutX(-1.0);
-        horse4.setLayoutY(114.0);
-        
-        horse5.setLayoutX(-1.0);
-        horse5.setLayoutY(152.0);
-    }
-    
-    @FXML
-    private void quitProgram(ActionEvent event) {
-        System.exit(0);        
-    }
-    
+            }// end race  
+    }   
 }
