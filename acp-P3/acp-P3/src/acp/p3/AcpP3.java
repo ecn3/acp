@@ -7,8 +7,13 @@ package acp.p3;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
+import javafx.scene.paint.*;
+import javafx.scene.shape.*;
+import java.lang.Math;
+import java.util.ArrayList;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -17,10 +22,11 @@ import javafx.stage.Stage;
  */
 public class AcpP3 extends Application {
     
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
+
         Scene scene = new Scene(root);
         
         stage.setTitle("Horse Race");
@@ -34,5 +40,5 @@ public class AcpP3 extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
