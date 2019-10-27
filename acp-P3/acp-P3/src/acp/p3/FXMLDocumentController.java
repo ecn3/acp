@@ -8,6 +8,8 @@ package acp.p3;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -50,8 +52,18 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void runRace(ActionEvent event) throws InterruptedException {
         //race length X -100 -> X 450 [550]
+        Timer timer = new Timer();
         boolean keepRacing = true;
-        advanceHorses(keepRacing);
+        
+        TimerTask runTheHorses = new TimerTask() {
+            public void run() {
+                if(keepRacing){
+                advanceHorses(keepRacing);
+                }
+            }
+        };
+
+        timer.schedule(runTheHorses,0, 500l); //run task every .5 seconds
 
     }
 
