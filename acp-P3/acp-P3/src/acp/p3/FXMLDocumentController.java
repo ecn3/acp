@@ -48,10 +48,20 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void resetRace(ActionEvent event) {
-        // Y = -25 -> 160: HorsesY: -10, 20, 60, 100, 140
-        //fitHeight="35.0" fitWidth="110.0" layoutX="-1.0" layoutY="38.0"
+        horse1.setLayoutX(-1.0);
+        horse1.setLayoutY(0);
+        
         horse2.setLayoutX(-1.0);
         horse2.setLayoutY(38.0);
+        
+        horse3.setLayoutX(-1.0);
+        horse3.setLayoutY(76.0);
+        
+        horse4.setLayoutX(-1.0);
+        horse4.setLayoutY(114.0);
+        
+        horse5.setLayoutX(-1.0);
+        horse5.setLayoutY(152.0);
     }
 
     @FXML
