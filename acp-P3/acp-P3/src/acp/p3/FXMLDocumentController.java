@@ -41,13 +41,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void runRace(ActionEvent event) {
         //race length X -100 -> X 450 [550]
+        horse2.setLayoutX(horse2.getLayoutX()+5);
+        horse2.setLayoutY(38.0);
         
     }
 
     @FXML
     private void resetRace(ActionEvent event) {
         // Y = -25 -> 160: HorsesY: -10, 20, 60, 100, 140
-        
+        //fitHeight="35.0" fitWidth="110.0" layoutX="-1.0" layoutY="38.0"
+        horse2.setLayoutX(-1.0);
+        horse2.setLayoutY(38.0);
     }
 
     @FXML
