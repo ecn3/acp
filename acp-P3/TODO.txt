@@ -1,0 +1,27 @@
+FXMLDoc
+
+5 horses are lined up at a starting line
+
+Buttons:
+[run race]
+[reset race]
+[quit program]
+
+on start up initalize the 5 horses
+
+FXMLDocController:
+
+[run race]: event
+	move the 5 horses accross the x-axis
+	if(horse crosses the finish line){horse[i] = winner} -> dialogbox.show("Horse: " +i+" has won the race!")
+	if(winner == set){horse not set itself as winner}
+	while(varrible KeepRunning == true){horses.run}
+
+[reset race]: event
+	initalize the 5 horses at the start
+
+[quit program]: event
+	System.exit(0);
+
+
+
