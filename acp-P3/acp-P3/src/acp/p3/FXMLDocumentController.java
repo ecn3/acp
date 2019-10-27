@@ -136,8 +136,8 @@ public class FXMLDocumentController implements Initializable {
             keepRacing = false;
             end = System.currentTimeMillis();
             float sec = (end - start) / 1000F; 
-            System.out.println("STOOOOOP");
             timer.cancel();
+            System.out.println("Winner is Horse: " + winner+" at "+sec + " seconds");
         }// end race 
     }
     
