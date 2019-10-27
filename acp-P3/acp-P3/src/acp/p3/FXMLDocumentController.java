@@ -45,10 +45,14 @@ public class FXMLDocumentController implements Initializable {
     public int winner = 0;
 
     public boolean keepRacing = true;
+    
+    public long start;
+    public long end;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        start = System.currentTimeMillis();
     }
 
     @FXML
@@ -63,13 +67,14 @@ public class FXMLDocumentController implements Initializable {
 
 
         timer.scheduleAtFixedRate(runTheHorses, 0, 200l); //run task every .5 seconds
-    
+       
+        float sec = (end - start) / 1000F; 
         if (keepRacing == false) {
             timer.cancel();
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Winner");
             alert.setHeaderText(null);
-            alert.setContentText("Winner is Horse: " + winner);
+            alert.setContentText("Winner is Horse: " + winner+" at "+sec + " seconds");
             alert.showAndWait();
         }
     }
@@ -77,6 +82,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void resetRace(ActionEvent event) {
         winner = 0;
+        start = System.currentTimeMillis();
 
         horse1.setLayoutX(-1.0);
         horse1.setLayoutY(0);
@@ -131,6 +137,7 @@ public class FXMLDocumentController implements Initializable {
         }
         if (winner > 0) {
             keepRacing = false;
+            end = System.currentTimeMillis();
         }// end race 
     }
 }
