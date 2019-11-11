@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -41,18 +42,18 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane pane8;
     
-    Color player1Color = Color.RED;
-    Color player2Color = Color.BLUE;
-    int currentPlayer = 0;
-    
+
+    public Color player1Color = Color.RED;
+    public Color player2Color = Color.BLUE;
+    public int currentPlayer = 0;
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
     }    
 
     @FXML
-    private void drawPane0(MouseEvent event) {
-        
+    private void drawPane0(MouseEvent event) {     
         if(currentPlayer == 0){
         pane0.getChildren().add(new Circle(0, 0, 20,player1Color));
         currentPlayer = 1;
@@ -63,9 +64,10 @@ public class FXMLDocumentController implements Initializable {
         pane0.setTranslateX(pane0.getPrefWidth() / 2);
         pane0.setTranslateY(pane0.getPrefHeight() / 2);
         
-     
+        } 
+
+    @FXML
+    private void drawPane1(MouseEvent event) {
     }
-    
- 
-    
-}
+    }
+
