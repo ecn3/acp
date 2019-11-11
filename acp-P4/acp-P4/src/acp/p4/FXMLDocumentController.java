@@ -11,25 +11,61 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 /**
  *
  * @author Christian
  */
 public class FXMLDocumentController implements Initializable {
-    
+
     @FXML
-    private Label label;
-    
+    private Pane pane0;
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    private Pane pane1;
+    @FXML
+    private Pane pane2;
+    @FXML
+    private Pane pane3;
+    @FXML
+    private Pane pane4;
+    @FXML
+    private Pane pane5;
+    @FXML
+    private Pane pane6;
+    @FXML
+    private Pane pane7;
+    @FXML
+    private Pane pane8;
+    
+    Color player1Color = Color.RED;
+    Color player2Color = Color.BLUE;
+    int currentPlayer = 0;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
+
+    @FXML
+    private void drawPane0(MouseEvent event) {
+        
+        if(currentPlayer == 0){
+        pane0.getChildren().add(new Circle(0, 0, 20,player1Color));
+        currentPlayer = 1;
+        } else{
+        pane0.getChildren().add(new Circle(0, 0, 20,player2Color));
+        currentPlayer = 0;
+        }
+        pane0.setTranslateX(pane0.getPrefWidth() / 2);
+        pane0.setTranslateY(pane0.getPrefHeight() / 2);
+        
+     
+    }
+    
+ 
     
 }
