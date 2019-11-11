@@ -1,0 +1,53 @@
+User runs server from command prompt, pulls up http://localhost:4200
+Server sends alert("ready to accept players for the game");
+
+User starts a client that logs into server from command prompt x 2
+
+JavaFX GUI ask user for name, send name to server
+
+Once server has 2 clients accepts move commands (int player, int row, int column)
+if (lastMove player == 1){player = 2);
+if (lastMove player == 2){player = 1);
+if(row > 2 || row < 0){take in row again); // math.round to nearest whole number
+if(column> 2 || column< 0){take in column again); // math.round to nearest whole number
+
+      col1 col2 col3
+row 0 ____|____|____
+row 1 ____|____|____
+row 2     |    |
+
+if(winner == 0){continue};
+player1Spots[i]
+player2Spots[i]
+
+012
+345
+678
+
+win conditions
+
+0 && 1 && 2
+3 && 4 && 5
+6 && 7 && 8
+
+0 && 3 && 6
+1 && 4 && 7
+2 && 5 && 8
+
+0 && 4 && 8
+2 && 4 && 6
+
+if(player1Spots[i].contains(0) && player1Spots[i].contains(1) && player1Spots[i].contains(2) ){winner = 1};
+
+
+int spot[9];
+
+for(int i = 0; i < 9; i ++){
+	spot[i] = 0;
+}// set for new game
+
+void playerMove(int playerChoice, int player){
+if(spot[playerChoice] != 0){
+spot[playerChoice] = player;
+}
+}
