@@ -46,7 +46,10 @@ public class FXMLDocumentController implements Initializable {
     public Color player1Color = Color.RED;
     public Color player2Color = Color.BLUE;
     public int currentPlayer = 0;
-   
+    
+    public int spot0 = 0;
+    public int spot1 = 0;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -54,20 +57,43 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void drawPane0(MouseEvent event) {     
+        
+        if(spot0 == 0){
         if(currentPlayer == 0){
         pane0.getChildren().add(new Circle(0, 0, 20,player1Color));
         currentPlayer = 1;
+        spot0 = 1;
         } else{
         pane0.getChildren().add(new Circle(0, 0, 20,player2Color));
         currentPlayer = 0;
+        spot0 = 2;
         }
         pane0.setTranslateX(pane0.getPrefWidth() / 2);
         pane0.setTranslateY(pane0.getPrefHeight() / 2);
         
-        } 
+        } else{
+            System.out.print("taken");
+        }
+    }//end pane0draw
 
     @FXML
     private void drawPane1(MouseEvent event) {
+         if(spot1 == 0){
+        if(currentPlayer == 0){
+        pane1.getChildren().add(new Circle(0, 0, 20,player1Color));
+        currentPlayer = 1;
+        spot1 = 1;
+        } else{
+        pane1.getChildren().add(new Circle(0, 0, 20,player2Color));
+        currentPlayer = 0;
+        spot1 = 2;
+        }
+        pane1.setTranslateX(pane1.getPrefWidth() / 2);
+        pane1.setTranslateY(pane1.getPrefHeight() / 2);
+        
+        } else{
+            System.out.print("taken");
+        }
     }
     }
 
