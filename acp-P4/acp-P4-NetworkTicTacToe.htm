@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+
+
+
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta name="Author" content="John coffey">
+
+  
+  <meta name="GENERATOR" content="Mozilla/4.61 [en] (WinNT; U) [Netscape]"><title>Client-Server Program</title>
+  
+
+  
+  
+  <style>
+<!--
+div.Section1
+
+
+
+
+	{page:Section1;}
+
+
+
+
+-->
+  </style></head><body>
+<center>
+<p style="margin-top: 0pt; margin-bottom: 0pt;"><b><span size="4" style="font-size: large;">The University of West Florida <br> Department of Computer Science</span></b></p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;"><b><span size="4" style="font-size: large;">Advanced Computer Programming Assignment</span></b></p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;"><b><span size="4" style="font-size: large;">John W. Coffey</span></b></p>
+</center>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;"><b>Program Description: Network Tic-Tac-Toe!!!</b></p>
+<p>We will design a program that enables people to play a game of Tic Tac Toe over the Internet. You will use <span face="Courier" style="font-family: Courier;"><span style="font-family: Courier New,Courier,monospace;">localhost</span>, </span>as described in class, to simplify grading.</p>
+<p></p>
+<p><strong>Running the program</strong></p>
+<p></p>
+<p>The user&nbsp;will start the server program from a command
+prompt.&nbsp;The server will alert that it is ready to accept players
+for the game.&nbsp;The user will then start two clients from different
+command prompts. The client program will be a graphical interface using
+JavaFX. When the client starts, it will ask the user for his or her
+name and then it will send that name to the server.</p>
+<p>The server will&nbsp;create games
+as pairs of clients make requests. Once each game has two players, the
+server will accept move commands with three parameters: the player
+number (1 or 2), the row of the Tic Tac Toe board (0, 1, or 2) and the
+column of the board (0, 1, 2). Moves must alternate between players.
+and each move must be displayed back to both clients. Significant error
+checking can take place on the clients, but the server should control
+the board in such a way as to guarantee no race conditions occur. Game
+play will continue until either a
+player wins or all board positions have been taken and a draw is
+declared.</p>
+<p></p>
+<br>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">A summary of our Network Tic-Tac-Toe protocol (<span style="font-family: Courier New,Courier,monospace;">N3TP</span>) is:</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<table id="table1" border="1" width="100%">
+<tbody>
+<tr>
+<td width="153">
+<p style="margin-top: 0pt; margin-bottom: 0pt;"><b>Client Message</b></p>
+</td>
+<td width="286">
+<p style="margin-top: 0pt; margin-bottom: 0pt;"><b>Server Response</b></p>
+</td>
+<td>
+<p style="margin-top: 0pt; margin-bottom: 0pt;"><b>Meaning</b></p>
+</td>
+</tr>
+<tr>
+<td width="153">
+<p style="margin-top: 0pt; margin-bottom: 0pt;">join &lt;name&gt;</p>
+</td>
+<td width="286">
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Hello &lt;name&gt; you are player&nbsp;1</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">or</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Hello &lt;name&gt; you are player 2. Let the game begin!</p>
+</td>
+<td>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">First player joining the game</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Second player has executed a "join" command</p>
+</td>
+</tr>
+<tr>
+<td width="153">
+<p style="margin-top: 0pt; margin-bottom: 0pt;">choose &lt;int&gt; &lt;int&gt; &lt;int&gt;</p>
+</td>
+<td width="286">
+<p style="margin-top: 0pt; margin-bottom: 0pt;">We do not have two players yet</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;&nbsp;&nbsp; or</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Player &lt;int&gt; has chosen &lt;int&gt; &lt;int&gt;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;&nbsp;&nbsp; or</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Position &lt;int&gt; &lt;int&gt; is taken, try again</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;&nbsp;&nbsp; or</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Not Player &lt;int&gt; turn</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;&nbsp;&nbsp; or</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Player &lt;int&gt; WINS!!!</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;&nbsp;&nbsp; or</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Illegal player number</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;&nbsp;&nbsp; or</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Illegal Board Position</p>
+</td>
+<td>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Need a second player to start</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Legal move - not the end of the game</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Position has been selected</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Must strictly alternate turns</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Winner</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Bad input data</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Bad input data</p>
+</td>
+</tr>
+<tr>
+<td width="153">
+<p style="margin-top: 0pt; margin-bottom: 0pt;">quit</p>
+</td>
+<td width="286">
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Player &lt;int&gt; has quit</p>
+</td>
+<td>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Game over</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="margin-top: 0pt; margin-bottom: 0pt;"><b>Notes: </b></p>
+<ul>
+<li>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">The goal is to establish the ability to&nbsp;manage multiple games by creating games as pairs of clients join.</p>
+</li>
+<li>The program must implement several checks:</li>
+<ul>
+<li>Players must strictly alternate making moves - the program must prevent players from moving twice in a row</li>
+<li>The program must check that the current move has not yet been made and that the current move is within the confines of the game.</li>
+</ul>
+<li>Every time the board is updated, output must be written to both
+clients simultaneously. This feature means that the game should
+interact with a given client until that client has made a legal move,
+THEN communicate the new board state to both clients.</li>
+<li>
+<p style="margin-top: 0pt; margin-bottom: 0pt;">Some of these features
+are more difficult to implement than others. I will provide guidance as needed.</p>
+</li>
+</ul><br>
+<p style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; margin-top: 0pt; margin-bottom: 0pt;"><b>Deliverables</b></p>
+<p style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; margin-top: 0pt; margin-bottom: 0pt;">DO
+NOT include .class files. The program must be recompiled before being
+tested to be sure the .class files are compatible with the runtime
+environment I use. Otherwise,you will submit all the usual things:<span>&nbsp;</span><br>1. UML class diagram.&nbsp;</p>
+<p style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; margin-top: 0pt; margin-bottom: 0pt;">2. A User's manual for your program<span>&nbsp;</span><span style="font-style: italic;">which tells me how to run it.</span><br>3. Your source code in Java<span>&nbsp;</span><br></p>
+<p style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; margin-top: 0pt; margin-bottom: 0pt;">4. A batch file (rc.bat) that will run the client and one (rs.bat) to run the server ON WINDOWS. NO Linux.<br></p>
+<p style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<p style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; margin-top: 0pt; margin-bottom: 0pt;">Please review the policy on Academic dishonesty.</p>
+<p class="MsoNormal" style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; margin-top: 0pt; margin-bottom: 0pt;">&nbsp;</p>
+<span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;"><span style="font-weight: bold;">Submission requirements:</span><br>1. Compile and run your program one last time before submitting it. Your program must run with JDK 8.0.<br>2. Place ALL files in your submission into a folder named<span>&nbsp;</span></span><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;"><span style="font-family: monospace;">&lt;lastName&gt;&lt;firstInitial&gt;-p&lt;number&gt;</span></span><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;">. If I were submitting project 4, my name would be coffeyj-p4.</span><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;"></span><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;"></span><br style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1;">
+<span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;">3.
+zip that folder into a .zip file with the SAME NAME. This means that
+inside your zip file, you will have exactly one folder (from the
+example: coffeyj-p4) showing at the top level.</span><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;"></span><br style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1;">
+<span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;">4.
+DO NOT make separate folders for documentation and source files (or
+anything else) inside the main folder. Having such a setup simply
+necessitates more navigation time to get where we need to go to grade.</span><br style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1;">
+<span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;">5.
+Any needed input files should be in the top-level folder along with the
+source code. This program will not need any input files.</span><br style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1;">
+<span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;">6. MacOS users -<span>&nbsp;</span><span style="font-style: italic;">remove the _MacOS_ utility folder</span><span>&nbsp;</span>before
+you zip up the file. If you cannot, delete it from the archive once the
+archive is created. It just takes up space and is not needed for
+anything we do with your submissions.</span><br style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1;">
+<span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;">7. Login to<span>&nbsp;</span><span style="font-family: monospace;">Canvas</span></span><span style="color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; font-family: monospace;">.</span><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;"><span class="Apple-converted-space">&nbsp;</span>Select our course from the dashboard.</span><br style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1;">
+<span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;">9. Select Assignments. Then select the appropriate project.</span><br style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1;">
+<span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; line-height: normal; widows: 1; float: none; display: inline ! important;">10.
+Upload your zip file. Check to insure that the file was uploaded.
+ALWAYS give yourself enough time. If you are trying to submit at
+11:57pm on your machine, the clock might be off and the dropbox might
+already be closed.</span></body></html>
