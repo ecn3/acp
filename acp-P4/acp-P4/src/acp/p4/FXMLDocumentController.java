@@ -257,12 +257,34 @@ public class FXMLDocumentController implements Initializable {
     }
     
     public void gameWon(){
-        if((spot0 == 1)&&(spot1 == 1)&&(spot2 == 1)){
-            winner = 1; // sets winner to spot
-        }// win option 1
-        if((spot0 == 2)&&(spot1 == 2)&&(spot2 == 2)){
-            winner = 2; // sets winner to spot
-        }// win option 1
+        
+        if((spot0 == spot1)&&(spot1 == spot2)){
+            winner = spot0; // sets winner to spot
+        }// win option -> top
+        if((spot3 == spot4)&&(spot4 == spot5)){
+            winner = spot3; // sets winner to spot
+        }// win option -> middle
+          if((spot6 == spot7)&&(spot7 == spot8)){
+            winner = spot6; // sets winner to spot
+        }// win option -> bottom
+          
+        if((spot0 == spot3)&&(spot3 == spot6)){
+            winner = spot0; // sets winner to spot
+        }// win option V row 0
+        if((spot1 == spot4)&&(spot4 == spot7)){
+            winner = spot1; // sets winner to spot
+        }// win option V row 1
+        if((spot2 == spot5)&&(spot5 == spot8)){
+            winner = spot2; // sets winner to spot
+        }// win option V row 2
+          
+         if((spot0 == spot4)&&(spot4 == spot8)){
+            winner = spot0; // sets winner to spot
+        }// win option \
+          if((spot2 == spot4)&&(spot4 == spot6)){
+            winner = spot2; // sets winner to spot
+        }// win option /
+          
         System.out.print("Player "+winner+" has won!");
             
     }
