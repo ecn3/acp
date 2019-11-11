@@ -42,9 +42,8 @@ public class FXMLDocumentController implements Initializable {
     private Pane pane7;
     @FXML
     private Pane pane8;
-
-    public Color player1Color = Color.RED;
-    public Color player2Color = Color.BLUE;
+   
+    public Color[] colors = new Color[2];
 
     public int currentPlayer = 0;
     
@@ -80,7 +79,9 @@ public class FXMLDocumentController implements Initializable {
         panes[6] = pane6;
         panes[7] = pane7;
         panes[8] = pane8;
-
+        
+        colors[0] = Color.RED;
+        colors[1] = Color.BLUE;
     }
 
     @FXML
@@ -164,19 +165,17 @@ public class FXMLDocumentController implements Initializable {
     
     public void drawCircle(int pane){
         if ((spots[pane] == 0) && (winner == 0)) {
+            panes[pane].getChildren().add(new Circle(0, 0, 20, colors[currentPlayer]));
+            panes[pane].setTranslateX(panes[pane].getPrefWidth() / 2);
+            panes[pane].setTranslateY(panes[pane].getPrefHeight() / 2);
             
             if (currentPlayer == 0) {
-                panes[pane].getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
                 spots[pane] = 1;
             } else {
-                panes[pane].getChildren().add(new Circle(0, 0, 20, player2Color));
                 currentPlayer = 0;
                 spots[pane] = 2;
             }
-            panes[pane].setTranslateX(panes[pane].getPrefWidth() / 2);
-            panes[pane].setTranslateY(panes[pane].getPrefHeight() / 2);
-
         } else {
             System.out.print("taken");
         }
