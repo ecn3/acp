@@ -136,7 +136,7 @@ public class FXMLDocumentController implements Initializable {
             if (currentPlayer == 0) {
                 pane3.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
-                spot2 = 1;
+                spot3 = 1;
             } else {
                 pane3.getChildren().add(new Circle(0, 0, 20, player2Color));
                 currentPlayer = 0;
@@ -257,10 +257,13 @@ public class FXMLDocumentController implements Initializable {
     }
     
     public void gameWon(){
-        if((spot0 == spot1)&&(spot1 == spot2)){
-            winner = spot0; // sets winner to spot
-        
+        if((spot0 == 1)&&(spot1 == 1)&&(spot2 == 1)){
+            winner = 1; // sets winner to spot
         }// win option 1
-            System.out.print("Player "+winner+" has won!");
+        if((spot0 == 2)&&(spot1 == 2)&&(spot2 == 2)){
+            winner = 2; // sets winner to spot
+        }// win option 1
+        System.out.print("Player "+winner+" has won!");
+            
     }
 }
