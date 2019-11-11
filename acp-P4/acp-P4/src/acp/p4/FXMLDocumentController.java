@@ -58,12 +58,16 @@ public class FXMLDocumentController implements Initializable {
     public int spot7 = 0;
     public int spot8 = 0;
     
+    public int spots[] = new int[9];
+    
     public int winner = 0;
  
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        for(int i = 0; i < 9; i++){
+            spots[i] = 0; // set all spots to 0
+        }
     }
 
     @FXML
@@ -284,8 +288,9 @@ public class FXMLDocumentController implements Initializable {
         else  if((spot2 == spot4)&&(spot4 == spot6)){
             winner = spot2; // sets winner to spot
         }// win option /
-          
-        System.out.print("Player "+winner+" has won!");
-            
+
+        if(winner>0){
+         System.out.println("Player "+winner+" has won!");   
+        }
     }
 }
