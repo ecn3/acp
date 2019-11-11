@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -46,6 +47,8 @@ public class FXMLDocumentController implements Initializable {
     public Color player2Color = Color.BLUE;
 
     public int currentPlayer = 0;
+    
+    public Pane[] panes = new Pane[9];
 
     //spots
     public int spot0 = 0;
@@ -68,229 +71,115 @@ public class FXMLDocumentController implements Initializable {
         for(int i = 0; i < 9; i++){
             spots[i] = 0; // set all spots to 0
         }
+        panes[0] = pane0;
+        panes[1] = pane1;
+        panes[2] = pane2;
+        panes[3] = pane3;
+        panes[4] = pane4;
+        panes[5] = pane5;
+        panes[6] = pane6;
+        panes[7] = pane7;
+        panes[8] = pane8;
+
     }
 
     @FXML
     private void drawPane0(MouseEvent event) {
-
-        if ((spot0 == 0) && (winner == 0)) {
-            if (currentPlayer == 0) {
-                pane0.getChildren().add(new Circle(0, 0, 20, player1Color));
-                currentPlayer = 1;
-                spot0 = 1;
-            } else {
-                pane0.getChildren().add(new Circle(0, 0, 20, player2Color));
-                currentPlayer = 0;
-                spot0 = 2;
-            }
-            pane0.setTranslateX(pane0.getPrefWidth() / 2);
-            pane0.setTranslateY(pane0.getPrefHeight() / 2);
-
-        } else {
-            System.out.print("taken");
-        }
-        gameWon();
+        drawCircle(0);;
     }//end pane0draw
 
     @FXML
     private void drawPane1(MouseEvent event) {
-        if ((spot1 == 0)  && (winner == 0)){
-            if (currentPlayer == 0) {
-                pane1.getChildren().add(new Circle(0, 0, 20, player1Color));
-                currentPlayer = 1;
-                spot1 = 1;
-            } else {
-                pane1.getChildren().add(new Circle(0, 0, 20, player2Color));
-                currentPlayer = 0;
-                spot1 = 2;
-            }
-            pane1.setTranslateX(pane1.getPrefWidth() / 2);
-            pane1.setTranslateY(pane1.getPrefHeight() / 2);
-
-        } else {
-            System.out.print("taken");
-        }
-         gameWon();
+        drawCircle(1);
     }
 
     @FXML
     private void drawPane2(MouseEvent event) {
-        if ((spot2 == 0) && (winner == 0)) {
-            if (currentPlayer == 0) {
-                pane2.getChildren().add(new Circle(0, 0, 20, player1Color));
-                currentPlayer = 1;
-                spot2 = 1;
-            } else {
-                pane2.getChildren().add(new Circle(0, 0, 20, player2Color));
-                currentPlayer = 0;
-                spot2 = 2;
-            }
-            pane2.setTranslateX(pane2.getPrefWidth() / 2);
-            pane2.setTranslateY(pane2.getPrefHeight() / 2);
-
-        } else {
-            System.out.print("taken");
-        }
-        gameWon();
+        drawCircle(2);
     }
 
     @FXML
     private void drawPane3(MouseEvent event) {
-        if ((spot3 == 0) && (winner == 0)) {
-            if (currentPlayer == 0) {
-                pane3.getChildren().add(new Circle(0, 0, 20, player1Color));
-                currentPlayer = 1;
-                spot3 = 1;
-            } else {
-                pane3.getChildren().add(new Circle(0, 0, 20, player2Color));
-                currentPlayer = 0;
-                spot3 = 2;
-            }
-            pane3.setTranslateX(pane3.getPrefWidth() / 2);
-            pane3.setTranslateY(pane3.getPrefHeight() / 2);
-
-        } else {
-            System.out.print("taken");
-        }
-        gameWon();
+        drawCircle(3);
     }
 
     @FXML
     private void drawPane4(MouseEvent event) {
-        if ((spot4 == 0) && (winner == 0)){
-            if (currentPlayer == 0) {
-                pane4.getChildren().add(new Circle(0, 0, 20, player1Color));
-                currentPlayer = 1;
-                spot4 = 1;
-            } else {
-                pane4.getChildren().add(new Circle(0, 0, 20, player2Color));
-                currentPlayer = 0;
-                spot4 = 2;
-            }
-            pane4.setTranslateX(pane4.getPrefWidth() / 2);
-            pane4.setTranslateY(pane4.getPrefHeight() / 2);
-
-        } else {
-            System.out.print("taken");
-        }
-        gameWon();
+        drawCircle(4);;
     }
 
     @FXML
     private void drawPane5(MouseEvent event) {
-        if ((spot5 == 0)&& (winner == 0)) {
-            if (currentPlayer == 0) {
-                pane5.getChildren().add(new Circle(0, 0, 20, player1Color));
-                currentPlayer = 1;
-                spot5 = 1;
-            } else {
-                pane5.getChildren().add(new Circle(0, 0, 20, player2Color));
-                currentPlayer = 0;
-                spot5 = 2;
-            }
-            pane5.setTranslateX(pane5.getPrefWidth() / 2);
-            pane5.setTranslateY(pane5.getPrefHeight() / 2);
-
-        } else {
-            System.out.print("taken");
-        }
-        gameWon();
+        drawCircle(5);
     }
 
     @FXML
     private void drawPane6(MouseEvent event) {
-        if ((spot6 == 0)&& (winner == 0)) {
-            if (currentPlayer == 0) {
-                pane6.getChildren().add(new Circle(0, 0, 20, player1Color));
-                currentPlayer = 1;
-                spot6 = 1;
-            } else {
-                pane6.getChildren().add(new Circle(0, 0, 20, player2Color));
-                currentPlayer = 0;
-                spot6 = 2;
-            }
-            pane6.setTranslateX(pane6.getPrefWidth() / 2);
-            pane6.setTranslateY(pane6.getPrefHeight() / 2);
-
-        } else {
-            System.out.print("taken");
-        }
-        gameWon();
+        drawCircle(6);
     }
 
     @FXML
     private void drawPane7(MouseEvent event) {
-        if ((spot7 == 0)&& (winner == 0)) {
-            if (currentPlayer == 0) {
-                pane7.getChildren().add(new Circle(0, 0, 20, player1Color));
-                currentPlayer = 1;
-                spot7 = 1;
-            } else {
-                pane7.getChildren().add(new Circle(0, 0, 20, player2Color));
-                currentPlayer = 0;
-                spot7 = 2;
-            }
-            pane7.setTranslateX(pane7.getPrefWidth() / 2);
-            pane7.setTranslateY(pane7.getPrefHeight() / 2);
-
-        } else {
-            System.out.print("taken");
-        }
-        gameWon();
+        drawCircle(7); 
     }
 
     @FXML
     private void drawPane8(MouseEvent event) {
-        if ((spot8 == 0) && (winner == 0)){
+        drawCircle(8);
+    }
+    
+    public void gameWon(){
+         //->
+         if((spots[0] == spots[1])&&(spots[1] == spots[2])){
+             winner = spots[0];
+         } // win option -> top
+         else if((spots[3] == spots[4])&&(spots[4] == spots[5])){
+             winner = spots[3];
+         } // win option -> middle
+         else if((spots[6] == spots[7])&&(spots[7] == spots[8])){
+             winner = spots[6];
+         } // win option -> bottom
+         // V
+         else if((spots[0] == spots[3])&&(spots[3] == spots[6])){
+             winner = spots[0];
+         } // win option V col 0
+         else if((spots[1] == spots[4])&&(spots[4] == spots[7])){
+             winner = spots[1];
+         } // win option V col 1
+         else if((spots[2] == spots[5])&&(spots[5] == spots[8])){
+             winner = spots[2];
+         } // win option V col 2
+         // \/
+         else if((spots[0] == spots[4])&&(spots[4] == spots[8])){
+             winner = spots[0];
+         } // win option \
+         else if((spots[2] == spots[4])&&(spots[4] == spots[5])){
+             winner = spots[2];
+         } // win option /
+         
+        if(winner>0){
+         System.out.println("Player "+winner+" has won!");   
+        }
+    }
+    
+    public void drawCircle(int pane){
+        if ((spots[pane] == 0) && (winner == 0)) {
+            
             if (currentPlayer == 0) {
-                pane8.getChildren().add(new Circle(0, 0, 20, player1Color));
+                panes[pane].getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
-                spot8 = 1;
+                spots[pane] = 1;
             } else {
-                pane8.getChildren().add(new Circle(0, 0, 20, player2Color));
+                panes[pane].getChildren().add(new Circle(0, 0, 20, player2Color));
                 currentPlayer = 0;
-                spot8 = 2;
+                spots[pane] = 2;
             }
-            pane8.setTranslateX(pane8.getPrefWidth() / 2);
-            pane8.setTranslateY(pane8.getPrefHeight() / 2);
+            panes[pane].setTranslateX(panes[pane].getPrefWidth() / 2);
+            panes[pane].setTranslateY(panes[pane].getPrefHeight() / 2);
 
         } else {
             System.out.print("taken");
         }
         gameWon();
-    }
-    
-    public void gameWon(){
-        
-        if((spot0 == spot1)&&(spot1 == spot2)){
-            winner = spot0; // sets winner to spot
-        }// win option -> top
-        else if((spot3 == spot4)&&(spot4 == spot5)){
-            winner = spot3; // sets winner to spot
-        }// win option -> middle
-        else if((spot6 == spot7)&&(spot7 == spot8)){
-            winner = spot6; // sets winner to spot
-        }// win option -> bottom
-          
-        else if((spot0 == spot3)&&(spot3 == spot6)){
-            winner = spot0; // sets winner to spot
-        }// win option V row 0
-        else if((spot1 == spot4)&&(spot4 == spot7)){
-            winner = spot1; // sets winner to spot
-        }// win option V row 1
-        else if((spot2 == spot5)&&(spot5 == spot8)){
-            winner = spot2; // sets winner to spot
-        }// win option V row 2
-          
-        else if((spot0 == spot4)&&(spot4 == spot8)){
-            winner = spot0; // sets winner to spot
-        }// win option \
-        else  if((spot2 == spot4)&&(spot4 == spot6)){
-            winner = spot2; // sets winner to spot
-        }// win option /
-
-        if(winner>0){
-         System.out.println("Player "+winner+" has won!");   
-        }
     }
 }
