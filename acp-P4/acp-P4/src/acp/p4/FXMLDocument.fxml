@@ -12,12 +12,12 @@
       <Line endX="-35.0" endY="-134.0" layoutX="233.0" layoutY="156.0" startX="-35.0" startY="16.0" />
       <Pane fx:id="pane0" layoutX="60.0" layoutY="22.0" onMouseClicked="#drawPane0" prefHeight="48.0" prefWidth="65.0" />
       <Pane fx:id="pane1" layoutX="125.0" layoutY="22.0" onMouseClicked="#drawPane1" prefHeight="48.0" prefWidth="72.0" />
-      <Pane fx:id="pane2" layoutX="199.0" layoutY="22.0" prefHeight="48.0" prefWidth="65.0" />
-      <Pane fx:id="pane3" layoutX="60.0" layoutY="69.0" prefHeight="48.0" prefWidth="65.0" />
-      <Pane fx:id="pane4" layoutX="125.0" layoutY="69.0" prefHeight="48.0" prefWidth="72.0" />
-      <Pane fx:id="pane5" layoutX="199.0" layoutY="69.0" prefHeight="48.0" prefWidth="65.0" />
-      <Pane fx:id="pane6" layoutX="60.0" layoutY="121.0" prefHeight="54.0" prefWidth="65.0" />
-      <Pane fx:id="pane7" layoutX="125.0" layoutY="121.0" prefHeight="54.0" prefWidth="72.0" />
-      <Pane fx:id="pane8" layoutX="196.0" layoutY="121.0" prefHeight="54.0" prefWidth="65.0" />
+      <Pane fx:id="pane2" layoutX="199.0" layoutY="22.0" onMouseClicked="#drawPane2" prefHeight="48.0" prefWidth="65.0" />
+      <Pane fx:id="pane3" layoutX="60.0" layoutY="69.0" onMouseClicked="#drawPane3" prefHeight="48.0" prefWidth="65.0" />
+      <Pane fx:id="pane4" layoutX="125.0" layoutY="69.0" onMouseClicked="#drawPane4" prefHeight="48.0" prefWidth="72.0" />
+      <Pane fx:id="pane5" layoutX="199.0" layoutY="69.0" onMouseClicked="#drawPane5" prefHeight="48.0" prefWidth="65.0" />
+      <Pane fx:id="pane6" layoutX="60.0" layoutY="121.0" onMouseClicked="#drawPane6" prefHeight="54.0" prefWidth="65.0" />
+      <Pane fx:id="pane7" layoutX="125.0" layoutY="121.0" onMouseClicked="#drawPane7" prefHeight="54.0" prefWidth="72.0" />
+      <Pane fx:id="pane8" layoutX="196.0" layoutY="121.0" onMouseClicked="#drawPane8" prefHeight="54.0" prefWidth="65.0" />
    </children>
 </AnchorPane>

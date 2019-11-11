@@ -41,59 +41,207 @@ public class FXMLDocumentController implements Initializable {
     private Pane pane7;
     @FXML
     private Pane pane8;
-    
 
     public Color player1Color = Color.RED;
     public Color player2Color = Color.BLUE;
+
     public int currentPlayer = 0;
-    
+
+    //spots
     public int spot0 = 0;
     public int spot1 = 0;
-    
+     public int spot2 = 0;
+    public int spot3 = 0;
+     public int spot4 = 0;
+    public int spot5 = 0;
+     public int spot6 = 0;
+    public int spot7 = 0;
+     public int spot8 = 0;
+ 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
+
+    }
 
     @FXML
-    private void drawPane0(MouseEvent event) {     
-        
-        if(spot0 == 0){
-        if(currentPlayer == 0){
-        pane0.getChildren().add(new Circle(0, 0, 20,player1Color));
-        currentPlayer = 1;
-        spot0 = 1;
-        } else{
-        pane0.getChildren().add(new Circle(0, 0, 20,player2Color));
-        currentPlayer = 0;
-        spot0 = 2;
-        }
-        pane0.setTranslateX(pane0.getPrefWidth() / 2);
-        pane0.setTranslateY(pane0.getPrefHeight() / 2);
-        
-        } else{
+    private void drawPane0(MouseEvent event) {
+
+        if (spot0 == 0) {
+            if (currentPlayer == 0) {
+                pane0.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot0 = 1;
+            } else {
+                pane0.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot0 = 2;
+            }
+            pane0.setTranslateX(pane0.getPrefWidth() / 2);
+            pane0.setTranslateY(pane0.getPrefHeight() / 2);
+
+        } else {
             System.out.print("taken");
         }
     }//end pane0draw
 
     @FXML
     private void drawPane1(MouseEvent event) {
-         if(spot1 == 0){
-        if(currentPlayer == 0){
-        pane1.getChildren().add(new Circle(0, 0, 20,player1Color));
-        currentPlayer = 1;
-        spot1 = 1;
-        } else{
-        pane1.getChildren().add(new Circle(0, 0, 20,player2Color));
-        currentPlayer = 0;
-        spot1 = 2;
-        }
-        pane1.setTranslateX(pane1.getPrefWidth() / 2);
-        pane1.setTranslateY(pane1.getPrefHeight() / 2);
-        
-        } else{
+        if (spot1 == 0) {
+            if (currentPlayer == 0) {
+                pane1.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot1 = 1;
+            } else {
+                pane1.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot1 = 2;
+            }
+            pane1.setTranslateX(pane1.getPrefWidth() / 2);
+            pane1.setTranslateY(pane1.getPrefHeight() / 2);
+
+        } else {
             System.out.print("taken");
         }
     }
+
+    @FXML
+    private void drawPane2(MouseEvent event) {
+        if (spot2 == 0) {
+            if (currentPlayer == 0) {
+                pane2.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot2 = 1;
+            } else {
+                pane2.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot2 = 2;
+            }
+            pane2.setTranslateX(pane2.getPrefWidth() / 2);
+            pane2.setTranslateY(pane2.getPrefHeight() / 2);
+
+        } else {
+            System.out.print("taken");
+        }
     }
 
+    @FXML
+    private void drawPane3(MouseEvent event) {
+        if (spot3 == 0) {
+            if (currentPlayer == 0) {
+                pane3.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot2 = 1;
+            } else {
+                pane3.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot3 = 2;
+            }
+            pane3.setTranslateX(pane3.getPrefWidth() / 2);
+            pane3.setTranslateY(pane3.getPrefHeight() / 2);
+
+        } else {
+            System.out.print("taken");
+        }
+    }
+
+    @FXML
+    private void drawPane4(MouseEvent event) {
+        if (spot4 == 0) {
+            if (currentPlayer == 0) {
+                pane4.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot4 = 1;
+            } else {
+                pane4.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot4 = 2;
+            }
+            pane4.setTranslateX(pane4.getPrefWidth() / 2);
+            pane4.setTranslateY(pane4.getPrefHeight() / 2);
+
+        } else {
+            System.out.print("taken");
+        }
+    }
+
+    @FXML
+    private void drawPane5(MouseEvent event) {
+        if (spot5 == 0) {
+            if (currentPlayer == 0) {
+                pane5.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot5 = 1;
+            } else {
+                pane5.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot5 = 2;
+            }
+            pane5.setTranslateX(pane5.getPrefWidth() / 2);
+            pane5.setTranslateY(pane5.getPrefHeight() / 2);
+
+        } else {
+            System.out.print("taken");
+        }
+    }
+
+    @FXML
+    private void drawPane6(MouseEvent event) {
+        if (spot6 == 0) {
+            if (currentPlayer == 0) {
+                pane6.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot6 = 1;
+            } else {
+                pane6.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot6 = 2;
+            }
+            pane6.setTranslateX(pane6.getPrefWidth() / 2);
+            pane6.setTranslateY(pane6.getPrefHeight() / 2);
+
+        } else {
+            System.out.print("taken");
+        }
+    }
+
+    @FXML
+    private void drawPane7(MouseEvent event) {
+        if (spot7 == 0) {
+            if (currentPlayer == 0) {
+                pane7.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot7 = 1;
+            } else {
+                pane7.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot7 = 2;
+            }
+            pane7.setTranslateX(pane7.getPrefWidth() / 2);
+            pane7.setTranslateY(pane7.getPrefHeight() / 2);
+
+        } else {
+            System.out.print("taken");
+        }
+    }
+
+    @FXML
+    private void drawPane8(MouseEvent event) {
+        if (spot8 == 0) {
+            if (currentPlayer == 0) {
+                pane8.getChildren().add(new Circle(0, 0, 20, player1Color));
+                currentPlayer = 1;
+                spot8 = 1;
+            } else {
+                pane8.getChildren().add(new Circle(0, 0, 20, player2Color));
+                currentPlayer = 0;
+                spot8 = 2;
+            }
+            pane8.setTranslateX(pane8.getPrefWidth() / 2);
+            pane8.setTranslateY(pane8.getPrefHeight() / 2);
+
+        } else {
+            System.out.print("taken");
+        }
+    }
+}
