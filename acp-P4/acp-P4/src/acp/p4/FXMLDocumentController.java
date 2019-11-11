@@ -50,13 +50,15 @@ public class FXMLDocumentController implements Initializable {
     //spots
     public int spot0 = 0;
     public int spot1 = 0;
-     public int spot2 = 0;
+    public int spot2 = 0;
     public int spot3 = 0;
-     public int spot4 = 0;
+    public int spot4 = 0;
     public int spot5 = 0;
-     public int spot6 = 0;
+    public int spot6 = 0;
     public int spot7 = 0;
-     public int spot8 = 0;
+    public int spot8 = 0;
+    
+    public int winner = 0;
  
 
     @Override
@@ -67,7 +69,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void drawPane0(MouseEvent event) {
 
-        if (spot0 == 0) {
+        if ((spot0 == 0) && (winner == 0)) {
             if (currentPlayer == 0) {
                 pane0.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -83,11 +85,12 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+        gameWon();
     }//end pane0draw
 
     @FXML
     private void drawPane1(MouseEvent event) {
-        if (spot1 == 0) {
+        if ((spot1 == 0)  && (winner == 0)){
             if (currentPlayer == 0) {
                 pane1.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -103,11 +106,12 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+         gameWon();
     }
 
     @FXML
     private void drawPane2(MouseEvent event) {
-        if (spot2 == 0) {
+        if ((spot2 == 0) && (winner == 0)) {
             if (currentPlayer == 0) {
                 pane2.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -123,11 +127,12 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+        gameWon();
     }
 
     @FXML
     private void drawPane3(MouseEvent event) {
-        if (spot3 == 0) {
+        if ((spot3 == 0) && (winner == 0)) {
             if (currentPlayer == 0) {
                 pane3.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -143,11 +148,12 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+        gameWon();
     }
 
     @FXML
     private void drawPane4(MouseEvent event) {
-        if (spot4 == 0) {
+        if ((spot4 == 0) && (winner == 0)){
             if (currentPlayer == 0) {
                 pane4.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -163,11 +169,12 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+        gameWon();
     }
 
     @FXML
     private void drawPane5(MouseEvent event) {
-        if (spot5 == 0) {
+        if ((spot5 == 0)&& (winner == 0)) {
             if (currentPlayer == 0) {
                 pane5.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -183,11 +190,12 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+        gameWon();
     }
 
     @FXML
     private void drawPane6(MouseEvent event) {
-        if (spot6 == 0) {
+        if ((spot6 == 0)&& (winner == 0)) {
             if (currentPlayer == 0) {
                 pane6.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -203,11 +211,12 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+        gameWon();
     }
 
     @FXML
     private void drawPane7(MouseEvent event) {
-        if (spot7 == 0) {
+        if ((spot7 == 0)&& (winner == 0)) {
             if (currentPlayer == 0) {
                 pane7.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -223,11 +232,12 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+        gameWon();
     }
 
     @FXML
     private void drawPane8(MouseEvent event) {
-        if (spot8 == 0) {
+        if ((spot8 == 0) && (winner == 0)){
             if (currentPlayer == 0) {
                 pane8.getChildren().add(new Circle(0, 0, 20, player1Color));
                 currentPlayer = 1;
@@ -243,5 +253,14 @@ public class FXMLDocumentController implements Initializable {
         } else {
             System.out.print("taken");
         }
+        gameWon();
+    }
+    
+    public void gameWon(){
+        if((spot0 == spot1)&&(spot1 == spot2)){
+            winner = spot0; // sets winner to spot
+        
+        }// win option 1
+            System.out.print("Player "+winner+" has won!");
     }
 }
