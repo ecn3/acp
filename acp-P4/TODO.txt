@@ -17,8 +17,7 @@ row 1 ____|____|____
 row 2     |    |
 
 if(winner == 0){continue};
-player1Spots[i]
-player2Spots[i]
+
 
 012
 345

@@ -70,6 +70,8 @@ public class FXMLDocumentController implements Initializable {
         for(int i = 0; i < 9; i++){
             spots[i] = 0; // set all spots to 0
         }
+        
+        // set panes
         panes[0] = pane0;
         panes[1] = pane1;
         panes[2] = pane2;

@@ -5,6 +5,7 @@
  */
 package acp.p4;
 
+import java.net.Socket;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +17,7 @@ import javafx.stage.Stage;
  * @author Christian
  */
 public class AcpP4 extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -26,12 +27,11 @@ public class AcpP4 extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        launch(args);   
     }
     
 }
