@@ -39,7 +39,7 @@ public class Client {
           clientName+=": ";
           while(!(clientMessage.contains("q"))){
           
-          if(myTurn){ 
+          while(myTurn){ 
           //user to client
           System.out.print(clientName);
           clientMessage = scanner.nextLine();
@@ -47,10 +47,15 @@ public class Client {
           //client to server
           pr.println(clientMessage +'\n');
           pr.flush();
+          
+          if(clientMessage.contains("your move")){
+          myTurn = false;    
+          }
           }
           // server to client
           String serverMessage = bf.readLine();
           System.out.println(serverMessage);
+          myTurn = true;
           }
     }
     
