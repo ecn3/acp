@@ -13,6 +13,7 @@ public class Server {
     
         public static String client1Name = "Client 1: ";
         public static String client2Name = "Client 2: ";
+        public static int clientTurn = 1;
     
         
        public static void main(String[] args) throws IOException {
@@ -59,13 +60,21 @@ public class Server {
             //print message c2 to server
             System.out.println(client2Name+ clientMessage2);  
             
+            if(clientTurn == 1){
             //send message from c2 to client1
             pr1.println(client2Name+clientMessage2);
             pr1.flush();
-            
+            }
+            if(clientTurn == 2){
             //send message from c1 to client2
             pr2.println(client1Name+clientMessage1);
-            pr2.flush();                     
+            pr2.flush();   
+            }
+            if(clientTurn == 1){
+             clientTurn = 2;   
+            }else{
+              clientTurn = 1;  
+            }
            }
           
     }

@@ -47,10 +47,12 @@ public class Client {
           //client to server
           pr.println(clientMessage +'\n');
           pr.flush();
-          }
           // server to client
           String serverMessage = bf.readLine();
           System.out.println(serverMessage);
+          myTurn = false;
+          }
+          myTurn = true;
           }
     }
     
