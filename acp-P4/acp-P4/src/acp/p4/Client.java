@@ -11,33 +11,52 @@ import java.util.Scanner;
 
 public class Client {
     
-       public boolean myTurn = false;
-        
+       public static boolean myTurn = true;
+       public static String clientMessage = "";
+       public  static Scanner scanner = new Scanner(System.in); // get user input 
+       public String clientName = "";
+       
        public static void main(String[] args) throws IOException {
-          Socket s = new Socket("localhost", 8081);
-          String clientMessage = "";
-          
-          //is connected
-          Scanner scanner = new Scanner(System.in); // get user input
-          
-          PrintWriter pr = new PrintWriter(s.getOutputStream()); // get client output
-          
-          InputStreamReader in = new InputStreamReader(s.getInputStream()); // get server input
-          BufferedReader bf = new BufferedReader(in); // return server input
-          
+          Client myClient = new Client();
+          }
+
+    public Client() throws IOException {
+        Socket s = new Socket("localhost", 8081);
+        PrintWriter pr = new PrintWriter(s.getOutputStream()); // get client output         
+        InputStreamReader in = new InputStreamReader(s.getInputStream()); // get server input
+        BufferedReader bf = new BufferedReader(in); // return server input
+        
+        // once connected get the name
+        setName();
+        run(pr, in, bf); // start running
+    }
+    
+    public void run(PrintWriter pr, InputStreamReader in, BufferedReader bf) throws IOException{
+           
+          // send the name to the server
+          pr.println(clientName);
+          pr.flush(); 
+          clientName+=": ";
           while(!(clientMessage.contains("q"))){
-              
+          
+          if(myTurn){ 
           //user to client
-          System.out.print("Client: ");
+          System.out.print(clientName);
           clientMessage = scanner.nextLine();
           
           //client to server
           pr.println(clientMessage +'\n');
           pr.flush();
-          
+          }
           // server to client
           String serverMessage = bf.readLine();
           System.out.println(serverMessage);
           }
-          }
+    }
+    
+    public void setName(){
+       System.out.print("Enter your name: ");
+       clientName = scanner.nextLine();// set the name
+    }
+       
 }

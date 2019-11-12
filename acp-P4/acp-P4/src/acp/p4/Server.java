@@ -5,14 +5,19 @@
  */
 package acp.p4;
 
+import static acp.p4.Client.scanner;
 import java.io.*;
 import java.net.*;
 
 public class Server {
     
+        public static String client1Name = "Client 1: ";
+        public static String client2Name = "Client 2: ";
+    
         
        public static void main(String[] args) throws IOException {
           ServerSocket ss = new ServerSocket(8081);
+
           
           String clientMessage1 = "";
           String clientMessage2 = "";
@@ -33,28 +38,42 @@ public class Server {
           // send message to client 2
           PrintWriter pr2 = new PrintWriter(s2.getOutputStream());
           
+          //start by getting client name
+          clientMessage1 = bf1.readLine();
+          setClient1Name(clientMessage1);
+          
+            //start by getting client name
+          clientMessage2 = bf2.readLine();
+          setClient2Name(clientMessage2);
+          
           while(!(clientMessage1.contains("q"))){ 
             //read in client 1 message  
             clientMessage1 = bf1.readLine();
             
            //print mesage c1 to server
-            System.out.println("Client1 : "+ clientMessage1);
+            System.out.println(client1Name+clientMessage1);
             
             //read in client 2 message  
             clientMessage2 = bf2.readLine();
             
             //print message c2 to server
-            System.out.println("Client2 : "+ clientMessage2);  
+            System.out.println(client2Name+ clientMessage2);  
             
             //send message from c2 to client1
-            pr1.println("Client 2: "+clientMessage2);
+            pr1.println(client2Name+clientMessage2);
             pr1.flush();
             
             //send message from c1 to client2
-            pr2.println("Client 1: "+clientMessage1);
+            pr2.println(client1Name+clientMessage1);
             pr2.flush();                     
            }
           
+    }
+    public static void setClient1Name(String name){
+       client1Name = name+": ";
+    }
+    public static void setClient2Name(String name){
+       client2Name = name+": ";
     }
      
 }
