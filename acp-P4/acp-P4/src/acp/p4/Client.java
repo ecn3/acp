@@ -10,28 +10,34 @@ import java.net.*;
 import java.util.Scanner;
 
 public class Client {
+    
+       public boolean myTurn = false;
+        
        public static void main(String[] args) throws IOException {
           Socket s = new Socket("localhost", 8081);
           String clientMessage = "";
           
+          //is connected
+          Scanner scanner = new Scanner(System.in); // get user input
+          
+          PrintWriter pr = new PrintWriter(s.getOutputStream()); // get client output
+          
+          InputStreamReader in = new InputStreamReader(s.getInputStream()); // get server input
+          BufferedReader bf = new BufferedReader(in); // return server input
+          
           while(!(clientMessage.contains("q"))){
+              
           //user to client
-          Scanner scanner = new Scanner(System.in);
           System.out.print("Client: ");
           clientMessage = scanner.nextLine();
           
           //client to server
-          PrintWriter pr = new PrintWriter(s.getOutputStream());
           pr.println(clientMessage +'\n');
           pr.flush();
           
           // server to client
-          InputStreamReader in = new InputStreamReader(s.getInputStream());
-          BufferedReader bf = new BufferedReader(in);
-          
           String serverMessage = bf.readLine();
-          
           System.out.println(serverMessage);
           }
-    }
+          }
 }
