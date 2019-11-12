@@ -48,6 +48,10 @@ public class Client {
           pr.println(clientMessage +'\n');
           pr.flush();
           
+          //plz work
+          String serverMessage = bf.readLine();
+          System.out.println(serverMessage);
+          
           if(clientMessage.contains("your move")){
           myTurn = false;    
           }
