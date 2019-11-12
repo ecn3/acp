@@ -7,14 +7,22 @@ package acp.p4;
 
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 public class Client {
        public static void main(String[] args) throws IOException {
           Socket s = new Socket("localhost", 8081);
+          String clientMessage = "";
+          
+          while(!(clientMessage.contains("q"))){
+          //user to client
+          Scanner scanner = new Scanner(System.in);
+          System.out.print("Client: ");
+          clientMessage = scanner.nextLine();
           
           //client to server
           PrintWriter pr = new PrintWriter(s.getOutputStream());
-          pr.println("Client connected");
+          pr.println(clientMessage +'\n');
           pr.flush();
           
           // server to client
@@ -24,6 +32,6 @@ public class Client {
           String serverMessage = bf.readLine();
           
           System.out.println("Server : "+ serverMessage);
-          
+          }
     }
 }
