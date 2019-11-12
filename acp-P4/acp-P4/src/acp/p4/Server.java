@@ -48,18 +48,18 @@ public class Server {
           setClient2Name(clientMessage2);
           
           while(!(clientMessage1.contains("q"))){ 
+             if(clientTurn == 1){ 
             //read in client 1 message  
             clientMessage1 = bf1.readLine();
-            
-           //print mesage c1 to server
+                      //print mesage c1 to server
             System.out.println(client1Name+clientMessage1);
-            
+             }
+             if(clientTurn == 2){ 
             //read in client 2 message  
             clientMessage2 = bf2.readLine();
-            
             //print message c2 to server
             System.out.println(client2Name+ clientMessage2);  
-            
+             }
             if(clientTurn == 1){
             //send message from c2 to client1
             pr1.println(client2Name+clientMessage2);
