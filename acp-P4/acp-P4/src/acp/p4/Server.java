@@ -24,6 +24,9 @@ public class Server {
           InputStreamReader in2 = new InputStreamReader(s2.getInputStream());
           BufferedReader bf2 = new BufferedReader(in2);
           
+          PrintWriter pr1 = new PrintWriter(s1.getOutputStream());
+          PrintWriter pr2 = new PrintWriter(s2.getOutputStream());
+          
           while(!(clientMessage1.contains("q"))){ 
           //get message
           clientMessage1 = bf1.readLine();
@@ -33,13 +36,10 @@ public class Server {
           System.out.println("Client1 : "+ clientMessage1);
           //print mesage c2
           System.out.println("Client2 : "+ clientMessage2);
-          
           //send message to client1
-          PrintWriter pr1 = new PrintWriter(s1.getOutputStream());
           pr1.println("Client 2: "+clientMessage2);
           pr1.flush();
            //send message to client1
-          PrintWriter pr2 = new PrintWriter(s2.getOutputStream());
           pr2.println("Client 1: "+clientMessage1);
           pr2.flush();
            }

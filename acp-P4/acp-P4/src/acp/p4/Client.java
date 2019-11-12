@@ -31,7 +31,7 @@ public class Client {
           
           String serverMessage = bf.readLine();
           
-          System.out.println("Server : "+ serverMessage);
+          System.out.println(serverMessage);
           }
     }
 }
