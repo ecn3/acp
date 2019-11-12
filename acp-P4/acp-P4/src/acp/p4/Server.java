@@ -60,12 +60,12 @@ public class Server {
             //print message c2 to server
             System.out.println(client2Name+ clientMessage2);  
              }
-            if(clientTurn == 1){
+            if(clientTurn == 2){
             //send message from c2 to client1
             pr1.println(client2Name+clientMessage2);
             pr1.flush();
             }
-            if(clientTurn == 2){
+            if(clientTurn == 1){
             //send message from c1 to client2
             pr2.println(client1Name+clientMessage1);
             pr2.flush();   
