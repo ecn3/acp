@@ -1,79 +1,77 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ implements https://www.youtube.com/watch?v=5rROgYJKj8c
  */
 package acp.p4;
 
-import static acp.p4.Client.scanner;
 import java.io.*;
 import java.net.*;
+import static java.lang.System.out;
+import java.util.Vector;
 
 public class Server {
+      public static void main(String[] args) throws Exception {
+          new Server().createserver();
+    }
     
-        public static String client1Name = "Client 1: ";
-        public static String client2Name = "Client 2: ";
-    
-        
-       public static void main(String[] args) throws IOException {
-          ServerSocket ss = new ServerSocket(8081);
+      Vector<String> users=new Vector<String>();
+      Vector<Manageuser> clients=new Vector<Manageuser>();
 
-          
-          String clientMessage1 = "";
-          String clientMessage2 = "";
-          
-          Socket s1 = ss.accept(); // takes in a connectio
-          Socket s2 = ss.accept(); // takes in a connectio
-          
-          // recieve messages from client 1
-          InputStreamReader in1 = new InputStreamReader(s1.getInputStream());
-          BufferedReader bf1 = new BufferedReader(in1);
-          
-          // recieve messages from client 2
-          InputStreamReader in2 = new InputStreamReader(s2.getInputStream());
-          BufferedReader bf2 = new BufferedReader(in2);
-          
-          // send message to client 1
-          PrintWriter pr1 = new PrintWriter(s1.getOutputStream());
-          // send message to client 2
-          PrintWriter pr2 = new PrintWriter(s2.getOutputStream());
-          
-          //start by getting client name
-          clientMessage1 = bf1.readLine();
-          setClient1Name(clientMessage1);
-          
-            //start by getting client name
-          clientMessage2 = bf2.readLine();
-          setClient2Name(clientMessage2);
-          
-          while(!(clientMessage1.contains("q"))){ 
-            //read in client 1 message  
-            clientMessage1 = bf1.readLine();
-            
-           //print mesage c1 to server
-            System.out.println(client1Name+clientMessage1);
-            
-            //read in client 2 message  
-            clientMessage2 = bf2.readLine();
-            
-            //print message c2 to server
-            System.out.println(client2Name+ clientMessage2);  
-            
-            //send message from c2 to client1
-            pr1.println(client2Name+clientMessage2);
-            pr1.flush();
-            
-            //send message from c1 to client2
-            pr2.println(client1Name+clientMessage1);
-            pr2.flush();                     
-           }
-          
+    private void createserver()throws Exception {
+        ServerSocket server=new ServerSocket(80,10);
+        out.println("Server is running");
+        while(true){
+            Socket client=server.accept();
+            Manageuser c = new Manageuser(client);
+            clients.add(c);
+        }
     }
-    public static void setClient1Name(String name){
-       client1Name = name+": ";
+    public void sendToAll(String user, String message){
+        for(Manageuser c : clients){
+            if(!c.getchatuser().equals(user)){
+                c.sendMessage(user,message);
+            }
+        }
     }
-    public static void setClient2Name(String name){
-       client2Name = name+": ";
+    
+    class Manageuser extends Thread{
+        String gotuser="";
+        BufferedReader input;
+        PrintWriter output;
+
+        private Manageuser(Socket client) throws Exception {
+            input = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            output = new PrintWriter(client.getOutputStream(),true);
+            gotuser = input.readLine();
+            users.add(gotuser);
+            start();
+        }
+
+        private void sendMessage(String chatuser, String chatmsg) {
+            output.println(chatuser+" Says:"+chatmsg);
+            
+        }
+
+        private String getchatuser() {
+            return gotuser;
+        }
+        @Override
+        public void run(){
+            String line;
+            try{
+                while(true){
+                    line=input.readLine();
+                    if(line.equals("end")){
+                        clients.remove(this);
+                        users.remove(gotuser);
+                        break;
+                    }
+                    sendToAll(gotuser,line);
+                }
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+                    
+        }
     }
-     
+    
 }
