@@ -15,80 +15,74 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import static java.lang.System.out;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-public final class Client extends JFrame implements ActionListener{
+
+public final class Client extends Application{
+    @Override
+    public void start(Stage stage) throws Exception {
+    Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+    
+    stage.setTitle(username);   
+    Scene scene = new Scene(root);
+        
+    stage.setScene(scene);
+    stage.show();    
+    }
+    
     String username;
     PrintWriter pw;
     BufferedReader br;
-    JTextArea chatmsg;
-    JTextField chatip;
-    JButton send,exit;
-    Socket chatusers;
+    Socket client;
+    
+
     
     public Client(String uname, String servername) throws Exception{
-        super(uname);
-        this.username=uname;
-        chatusers=new Socket(servername,80);
-        br=new BufferedReader(new InputStreamReader(chatusers.getInputStream()));
-        pw = new PrintWriter(chatusers.getOutputStream(),true);
-        pw.println(uname);
-        buildInterface();
-        new MessageThread().start();
+        username=uname; // sets user name
+        client=new Socket(servername,80); // adds client to server
+        br=new BufferedReader(new InputStreamReader(client.getInputStream())); // makes a read3er for cleitn messages
+        pw = new PrintWriter(client.getOutputStream(),true); //writter for client messages
+        pw.println(uname); // sends user name to server
+        System.out.println("Client: "+username); // prints user name to console
+        
+        Stage stage = new Stage();
+        start(stage);
+        new MessageThread().start(); // starts the thread that will do all of our tictoeing
     }
 
-    private void buildInterface() {
-        send = new JButton("Send");
-        exit = new JButton("Exit");
-        chatmsg=new JTextArea();
-        chatmsg.setRows(30);
-        chatmsg.setColumns(50);
-        chatip=new JTextField(50);
-        JScrollPane sp= new JScrollPane(chatmsg, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        add(sp,"Center");
-        JPanel bp=new JPanel(new FlowLayout());
-        bp.add(chatip);
-        bp.add(send);
-        bp.add(exit);
-        bp.setBackground(Color.LIGHT_GRAY);
-        bp.setName("Test app");
-        add(bp,"North");
-        send.addActionListener(this);
-        exit.addActionListener(this);
-        setSize(500,300);
-        setVisible(true);
-        pack();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent evt){
-        if(evt.getSource()==exit){
-            pw.println("end");
-            System.exit(0);
-        }else{
-           pw.println(chatip.getText());
-           chatip.setText(null);
-        }
-    }
-    public static void main(String[] args){
-        String SetUserName=JOptionPane.showInputDialog(null, "Enter neme: ","Test App", JOptionPane.PLAIN_MESSAGE);
+    public static void main(String[] args){   
+        String SetUserName=JOptionPane.showInputDialog(null, "Enter neme: ","TicTacToe", JOptionPane.PLAIN_MESSAGE);
         String servername="localhost";
         try{
-            new Client(SetUserName,servername);
+              //create new javafx  
+            new Client(SetUserName,servername); //creates new client
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
     }
-
     class MessageThread extends Thread {
         
         @Override
         public void run(){
-            String line;
+            String move;
             try{
                 while(true){
-                    line=br.readLine();
-                    chatmsg.append(line+"\n");
+                    move=br.readLine(); // reads in move sent by player
+                    //get actions performed
+                    //set  varible pane to what that pane chose
                 }
             }catch(Exception e){
                 System.out.println(e.getMessage());
