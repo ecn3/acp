@@ -64,7 +64,7 @@ public final class Client extends Application{
     }
 
     public static void main(String[] args){   
-        String SetUserName=JOptionPane.showInputDialog(null, "Enter neme: ","TicTacToe", JOptionPane.PLAIN_MESSAGE);
+        String SetUserName=JOptionPane.showInputDialog(null, "Enter name: ","TicTacToe", JOptionPane.PLAIN_MESSAGE);
         String servername="localhost";
         try{
               //create new javafx  
