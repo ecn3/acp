@@ -37,19 +37,15 @@ import javafx.stage.Stage;
 public final class Client extends Application{
     @Override
     public void start(Stage stage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-    
-    stage.setTitle(username);   
-    Scene scene = new Scene(root);
-        
-    stage.setScene(scene);
-    stage.show();    
+        //im needed but unused
     }
     
-    String username;
+    public static String username;
     PrintWriter pw;
     BufferedReader br;
     Socket client;
+    public static final AcpP4 ttt = new AcpP4();
+    public static Stage stage = new Stage();
     
 
     
@@ -69,9 +65,9 @@ public final class Client extends Application{
             Platform.runLater(new Runnable() {
         @Override
             public void run() {
-        Stage stage = new Stage();
+
             try {
-            final AcpP4 ttt = new AcpP4();
+                stage.setTitle(username);
                 ttt.start(stage);
             } catch (Exception ex) {
                 Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
