@@ -16,6 +16,8 @@ import java.awt.*;
 import java.awt.event.*;
 import static java.lang.System.out;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -57,20 +60,28 @@ public final class Client extends Application{
         pw = new PrintWriter(client.getOutputStream(),true); //writter for client messages
         pw.println(uname); // sends user name to server
         System.out.println("Client: "+username); // prints user name to console
-        
-        Stage stage = new Stage();
-        start(stage);
         new MessageThread().start(); // starts the thread that will do all of our tictoeing
     }
 
     public static void main(String[] args){   
         String SetUserName=JOptionPane.showInputDialog(null, "Enter name: ","TicTacToe", JOptionPane.PLAIN_MESSAGE);
         String servername="localhost";
+            Platform.runLater(new Runnable() {
+        @Override
+            public void run() {
+        Stage stage = new Stage();
+            try {
+            final AcpP4 ttt = new AcpP4();
+                ttt.start(stage);
+            } catch (Exception ex) {
+                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                }
+        });
         try{
-              //create new javafx  
             new Client(SetUserName,servername); //creates new client
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("main: " +e.getMessage());
         }
     }
     class MessageThread extends Thread {
@@ -81,11 +92,9 @@ public final class Client extends Application{
             try{
                 while(true){
                     move=br.readLine(); // reads in move sent by player
-                    //get actions performed
-                    //set  varible pane to what that pane chose
                 }
             }catch(Exception e){
-                System.out.println(e.getMessage());
+                System.out.println("MessageThread: "+e.getMessage());
             }
         }
     }
