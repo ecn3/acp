@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  *
@@ -27,7 +28,7 @@ public class FXMLDocumentController implements Initializable {
     ObservableList warehouseLocations = FXCollections.observableArrayList();
      
     @FXML
-    private Button submitBtn;
+    private AnchorPane submitBtn;
     @FXML
     private ChoiceBox<String> instrumentTypeChoiceBox;
     @FXML
@@ -59,6 +60,10 @@ public class FXMLDocumentController implements Initializable {
         warehouseLocations.removeAll(warehouseLocations); // clear list
         warehouseLocations.addAll("all","PNS","CLT","DFW");
         warehouseLocationChoiceBox.getItems().addAll(warehouseLocations);
+    }
+
+    @FXML
+    private void submitBtn(ActionEvent event) {
     }
     
 }

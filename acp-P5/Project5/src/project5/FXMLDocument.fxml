@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project5.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="submitBtn" prefHeight="374.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project5.FXMLDocumentController">
    <children>
       <Label layoutX="54.0" layoutY="25.0" text="Instrument Type:" />
       <Label layoutX="54.0" layoutY="66.0" text="Instrument Brand:" />
       <Label layoutX="54.0" layoutY="103.0" text="Maximum cost:" />
       <Label layoutX="54.0" layoutY="144.0" text="Warehouse Location:" />
-      <Button id="submitBtn" fx:id="submitBtn" layoutX="161.0" layoutY="187.0" mnemonicParsing="false" text="Submit Request" />
+      <Button id="submitBtn" fx:id="submitBtn" layoutX="161.0" layoutY="187.0" mnemonicParsing="false" onAction="#submitBtn" text="Submit Request" />
       <TextField id="maxCostTextField" layoutX="192.0" layoutY="104.0" />
       <ChoiceBox id="instrumentTypeChoiceBox" fx:id="instrumentTypeChoiceBox" layoutX="193.0" layoutY="25.0" prefWidth="150.0" />
       <ChoiceBox id="instrumentBrandChoiceBox" fx:id="instrumentBrandChoiceBox" layoutX="193.0" layoutY="66.0" prefWidth="150.0" />
