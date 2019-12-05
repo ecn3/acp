@@ -7,7 +7,9 @@ package project5;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -16,12 +18,15 @@ import javafx.fxml.Initializable;
  */
 public class FXMLSubmitResultsController implements Initializable {
 
+    @FXML
+    private Text queryResult;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        queryResult.setText("guitar gibson saiufgwsukfag as");
     }    
     
 }
