@@ -32,8 +32,7 @@ public class FXMLDocumentController implements Initializable {
     
     ObservableList instrumentTypes = FXCollections.observableArrayList();
     ObservableList instrumentBrands = FXCollections.observableArrayList();
-    ObservableList warehouseLocations = FXCollections.observableArrayList();
-     
+    ObservableList warehouseLocations = FXCollections.observableArrayList(); 
     @FXML
     private AnchorPane submitBtn;
     @FXML
@@ -72,8 +71,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void submitBtnClicked(ActionEvent event) {
                 try {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLSubmitResults.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLSubmitResults.fxml"));
+        Parent root = loader.load();
+  
         Scene scene = new Scene(root);
+        
+        FXMLSubmitResultsController myQueryController = loader.getController();
+        
+        myQueryController.initData("testing");
+
+
         Stage stage = new Stage();
         stage.setTitle("Musical Instrument Lookup");
         stage.setScene(scene);
@@ -83,5 +91,7 @@ public class FXMLDocumentController implements Initializable {
         logger.log(Level.SEVERE, "Failed to create new Window.", e);
     }
     }
+    
+    
     
 }

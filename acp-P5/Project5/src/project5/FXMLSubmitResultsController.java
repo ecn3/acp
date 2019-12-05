@@ -7,8 +7,10 @@ package project5;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 /**
@@ -20,13 +22,18 @@ public class FXMLSubmitResultsController implements Initializable {
 
     @FXML
     private Text queryResult;
-
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Button okBtn;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        queryResult.setText("guitar gibson saiufgwsukfag as");
     }    
-    
+
+    @FXML
+    private void okBtnClick(ActionEvent event) {
+    }
+
+    void initData(String query) {
+        queryResult.setText(query);
+    }
 }
