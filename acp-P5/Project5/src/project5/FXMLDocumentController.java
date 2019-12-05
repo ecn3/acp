@@ -5,17 +5,24 @@
  */
 package project5;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  *
@@ -63,7 +70,18 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void submitBtn(ActionEvent event) {
+    private void submitBtnClicked(ActionEvent event) {
+                try {
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLSubmitResults.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setTitle("Musical Instrument Lookup");
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException e) {
+        Logger logger = Logger.getLogger(getClass().getName());
+        logger.log(Level.SEVERE, "Failed to create new Window.", e);
+    }
     }
     
 }
