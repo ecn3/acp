@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -31,6 +32,8 @@ public class FXMLSubmitResultsController implements Initializable {
 
     @FXML
     private void okBtnClick(ActionEvent event) {
+    Stage stage = (Stage) okBtn.getScene().getWindow();
+    stage.close();
     }
 
     void initData(String query) {
