@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -42,6 +43,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ChoiceBox<String> warehouseLocationChoiceBox;
     
+    public String instrumentTypeChoiceBoxText;
+    public String instrumentBrandChoiceBoxText;
+    public String warehouseLocationChoiceBoxText;
+    @FXML
+    private TextField maximumCost;
     
     
     @Override
@@ -78,8 +84,13 @@ public class FXMLDocumentController implements Initializable {
         Scene scene = new Scene(root);
         
         FXMLSubmitResultsController myQueryController = loader.getController();
+
+        instrumentTypeChoiceBoxText = instrumentTypeChoiceBox.getValue();
+        instrumentBrandChoiceBoxText = instrumentBrandChoiceBox.getValue();
+        warehouseLocationChoiceBoxText = warehouseLocationChoiceBox.getValue();
         
-        myQueryController.initData("testing");
+        myQueryController.initData(instrumentTypeChoiceBoxText+"     "+instrumentBrandChoiceBoxText+"     "
+        +maximumCost.getText()+"  "+warehouseLocationChoiceBoxText);
 
 
         Stage stage = new Stage();
