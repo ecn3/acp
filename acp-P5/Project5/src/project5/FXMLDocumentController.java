@@ -76,7 +76,7 @@ public class FXMLDocumentController implements Initializable {
         warehouseLocationChoiceBox.getItems().addAll(warehouseLocations);
     }
        
-    private String getQuery(){
+    private String getQueryResult(){
         //get choices that user put in
         instrumentTypeChoiceBoxText = instrumentTypeChoiceBox.getValue();
         instrumentBrandChoiceBoxText = instrumentBrandChoiceBox.getValue();
@@ -87,6 +87,10 @@ public class FXMLDocumentController implements Initializable {
         +maximumCostText+"  "+warehouseLocationChoiceBoxText;
                 
         return myQuery;
+    }
+    
+    private void searchDatabase(){
+        
     }
 
     @FXML
@@ -101,7 +105,7 @@ public class FXMLDocumentController implements Initializable {
         FXMLSubmitResultsController myQueryController = loader.getController();
         
         //get query
-        myQuery = getQuery();
+        myQuery = getQueryResult();
         
         // send to text field on second window
         myQueryController.initData(myQuery);
