@@ -11,13 +11,22 @@ package project5;
  */
 import java.io.*;
 import java.net.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Server {
+        public static ResultSet instruments;
 
-    public static void main(String args[])
-            throws Exception {
+    public static void main(String args[]) throws Exception {
+        //Database
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://localhost:8081/sample";
+        Connection connection = DriverManager.getConnection(url, "username", "password");
+        Statement stmt = connection.createStatement();
+        instruments = createInstruments(stmt);
+        System.out.println(instruments.toString());
         // Create server Socket 
         ServerSocket ss = new ServerSocket(8081);
         // connect it to client socket 
@@ -51,7 +60,7 @@ public class Server {
         } // end of while 
     }
 
-    public ResultSet createInstruments(Statement stat) throws Exception {
+    public static ResultSet createInstruments(Statement stat) throws Exception {
         stat.execute("CREATE TABLE Instruments (instName CHAR(12),instNumber INTEGER,cost DOUBLE,descrip CHAR(20))");
         stat.execute("INSERT INTO Instruments VALUES ('guitar',1,100.0,'yamaha')");
         stat.execute("INSERT INTO Instruments VALUES ('guitar',2,500.0,'gibson')");
@@ -62,7 +71,7 @@ public class Server {
         return result;
     }
 
-    public ResultSet createLocations(Statement stat) throws Exception {
+    public static ResultSet createLocations(Statement stat) throws Exception {
         stat.execute("CREATE TABLE Locations (locName CHAR(12),locNumber INTEGER,address CHAR(50))");
         stat.execute("INSERT INTO Locations VALUES ('PNS',1,'Pensacola Florida')");
         stat.execute("INSERT INTO Locations VALUES ('CLT',2,'Charlotte North Carolina')");
@@ -71,7 +80,7 @@ public class Server {
         return result;
     }
 
-    public ResultSet createInventory(Statement stat) throws Exception {
+    public static ResultSet createInventory(Statement stat) throws Exception {
         stat.execute("CREATE TABLE Inventory (iNumber INTEGER,lNumber INTEGER,quantity INTEGER)");
         stat.execute("INSERT INTO Inventory VALUES (1,1,15)");
         stat.execute("INSERT INTO Inventory VALUES (1,2,27)");
