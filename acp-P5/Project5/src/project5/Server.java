@@ -17,16 +17,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Server {
-        public static ResultSet instruments;
+        public static ResultSet instruments = null;
 
     public static void main(String args[]) throws Exception {
         //Database
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:8081/sample";
-        Connection connection = DriverManager.getConnection(url, "username", "password");
-        Statement stmt = connection.createStatement();
-        instruments = createInstruments(stmt);
-        System.out.println(instruments.toString());
+        //instruments = createInstruments();
+        System.out.println(instruments);
         // Create server Socket 
         ServerSocket ss = new ServerSocket(8081);
         // connect it to client socket 
