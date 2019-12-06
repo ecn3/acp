@@ -26,8 +26,8 @@ public class Client {
     public static BufferedReader keyboardBufferedReader; //read data from the keyboard 
     public static DataOutputStream toServerdos; // send data to the server 
     public static String sendToServerStr, recieveFromServerStr;
-    
-    public Client() throws Exception{
+
+    public Client() throws Exception {
 
         socket = new Socket("localhost", 8081);
         toServerdos = new DataOutputStream(socket.getOutputStream());
@@ -39,42 +39,38 @@ public class Client {
 
     public static void main(String args[]) throws Exception {
         // create client
-      try{
+        try {
             new Client();
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        // repeat as long as exit 
-        // is not typed at client 
-        while (!(sendToServerStr = keyboardBufferedReader.readLine()).equals("exit")) {
-            // send to the server 
-            toServerdos.writeBytes(sendToServerStr + "\n");
-            // receive from the server 
-            recieveFromServerStr = serverBufferedReader.readLine();
-
-            System.out.println(recieveFromServerStr);
-        }
-        // close connection. 
-        toServerdos.close();
-        serverBufferedReader.close();
-        keyboardBufferedReader.close();
-        socket.close();
     }
-    
-        class MessageThread extends Thread {
-        
+
+    class MessageThread extends Thread {
+
         @Override
-        public void run(){
+        public void run() {
             String line;
-            try{
-                while(true){
-                    line=serverBufferedReader.readLine();
-                    //edit second window text field
+            try {
+                // repeat as long as exit 
+                // is not typed at client 
+                while (!(sendToServerStr = keyboardBufferedReader.readLine()).equals("exit")) {
+                    // send to the server 
+                    toServerdos.writeBytes(sendToServerStr + "\n");
+                    // receive from the server 
+                    recieveFromServerStr = serverBufferedReader.readLine();
+
+                    System.out.println(recieveFromServerStr);
                 }
-            }catch(Exception e){
+                // close connection. 
+                toServerdos.close();
+                serverBufferedReader.close();
+                keyboardBufferedReader.close();
+                socket.close();
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
-    
+
 }
