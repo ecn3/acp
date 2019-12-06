@@ -46,6 +46,8 @@ public class FXMLDocumentController implements Initializable {
     public String instrumentTypeChoiceBoxText;
     public String instrumentBrandChoiceBoxText;
     public String warehouseLocationChoiceBoxText;
+    public String maximumCostText;
+    public String myQuery;
     @FXML
     private TextField maximumCost;
     
@@ -73,6 +75,19 @@ public class FXMLDocumentController implements Initializable {
         warehouseLocations.addAll("all","PNS","CLT","DFW");
         warehouseLocationChoiceBox.getItems().addAll(warehouseLocations);
     }
+       
+    private String getQuery(){
+        //get choices that user put in
+        instrumentTypeChoiceBoxText = instrumentTypeChoiceBox.getValue();
+        instrumentBrandChoiceBoxText = instrumentBrandChoiceBox.getValue();
+        warehouseLocationChoiceBoxText = warehouseLocationChoiceBox.getValue();
+        maximumCostText = maximumCost.getText();
+        
+        myQuery = instrumentTypeChoiceBoxText+"     "+instrumentBrandChoiceBoxText+"     "
+        +maximumCostText+"  "+warehouseLocationChoiceBoxText;
+                
+        return myQuery;
+    }
 
     @FXML
     private void submitBtnClicked(ActionEvent event) {
@@ -84,14 +99,14 @@ public class FXMLDocumentController implements Initializable {
         Scene scene = new Scene(root);
         
         FXMLSubmitResultsController myQueryController = loader.getController();
-
-        instrumentTypeChoiceBoxText = instrumentTypeChoiceBox.getValue();
-        instrumentBrandChoiceBoxText = instrumentBrandChoiceBox.getValue();
-        warehouseLocationChoiceBoxText = warehouseLocationChoiceBox.getValue();
         
-        myQueryController.initData(instrumentTypeChoiceBoxText+"     "+instrumentBrandChoiceBoxText+"     "
-        +maximumCost.getText()+"  "+warehouseLocationChoiceBoxText);
-
+        //get query
+        myQuery = getQuery();
+        
+        // send to text field on second window
+        myQueryController.initData(myQuery);
+        
+        
 
         Stage stage = new Stage();
         stage.setTitle("Musical Instrument Lookup");
